@@ -24,7 +24,7 @@ export function Hero() {
       {/* Content Overlay */}
       <YStack 
         zIndex={10} 
-        maxWidth={1000} 
+        maxWidth={900} 
         padding="$4" 
         gap="$8" 
         alignItems="center" 
@@ -37,14 +37,17 @@ export function Hero() {
             <H1 
                 textAlign="center" 
                 color="$color" 
-                fontSize={64} 
-                lineHeight={72}
-                $gtSm={{ fontSize: 96, lineHeight: 100 }}
+                fontSize={56} 
+                lineHeight={64}
+                $gtSm={{ fontSize: 80, lineHeight: 88 }}
                 fontFamily="$heading"
                 fontWeight="300"
                 letterSpacing={-2}
+                marginBottom="$4"
             >
-              Synap Core
+              Your code is open source.
+              <br />
+              <Text color="$primary">Why isn't your data?</Text>
             </H1>
         </motion.div>
         
@@ -58,13 +61,14 @@ export function Hero() {
                 opacity={0.7} 
                 fontSize={20}
                 lineHeight={32}
-                maxWidth={600}
+                maxWidth={700}
                 textAlign="center"
                 fontFamily="$body"
                 fontWeight="300"
             >
-              The biological substrate for personal intelligence. <br/>
-              <Text color="$primary" opacity={1}>Self-host your mind.</Text>
+              Event-sourced personal data infrastructure. Build apps on user-owned data pods.
+              <br/>
+              The end of digital feudalism starts with developers.
             </Paragraph>
         </motion.div>
 
@@ -72,17 +76,36 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            style={{ display: 'flex', gap: 16 }}
+            style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}
         >
             <Button variant="primary" size="$5" borderRadius="$10">
-                Initialize Core
+                Deploy in 5 Minutes
             </Button>
             <Button variant="outline" size="$5" borderRadius="$10" borderColor="$borderColor">
-                Read the Whitepaper
+                Read the Architecture
             </Button>
+        </motion.div>
+
+        {/* Technical credibility tagline */}
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+        >
+            <Text 
+                fontFamily="$mono" 
+                fontSize={12} 
+                color="$color" 
+                opacity={0.4}
+                letterSpacing={1}
+                textTransform="uppercase"
+            >
+              Event Sourcing • Self-Hosted • API-First • Open Source
+            </Text>
         </motion.div>
       </YStack>
     </YStack>
   )
 }
+
 
