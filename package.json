@@ -9,18 +9,34 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.0.3",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "@rive-app/react-canvas": "^4.24.0",
+    "@studio-freight/lenis": "^1.0.42",
+    "@studio-freight/react-lenis": "^0.0.47",
+    "@tamagui/animations-react-native": "^1.138.2",
+    "@tamagui/config": "^1.138.2",
+    "@tamagui/core": "^1.138.2",
+    "@tamagui/font-inter": "^1.138.2",
+    "@tamagui/next-plugin": "^1.138.2",
+    "@tamagui/shorthands": "^1.138.2",
+    "@tamagui/themes": "^1.138.2",
+    "@types/three": "^0.181.0",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.554.0",
+    "next": "^14.2.33",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native-web": "^0.21.2",
+    "tamagui": "^1.138.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "webpack": "^5.103.0"
   }
 }
