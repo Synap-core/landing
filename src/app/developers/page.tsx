@@ -1,7 +1,8 @@
 'use client'
 
 import type { Metadata } from 'next'
-import { YStack, XStack, H1, H2, H3, Paragraph, Button, Text } from 'tamagui'
+import { YStack, XStack, H1, H2, H3, Paragraph, Text } from 'tamagui'
+import { Button } from '@/components/ui/Button'
 import { ArrowLeft, Terminal, Database, Shield, Zap, Code2, GitBranch, Globe } from 'lucide-react'
 import Link from 'next/link'
 import { Navigation } from '@/components/ui/Navigation'
