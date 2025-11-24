@@ -69,7 +69,7 @@ export default function DevelopersPage() {
             <Paragraph color="rgba(255,255,255,0.7)" marginBottom="$4">
               All state changes are captured as immutable events in TimescaleDB. Every action becomes an auditable, replayable event.
             </Paragraph>
-            <YStack backgroundColor="#000" padding="$4" borderRadius="$4" fontFamily="monospace">
+            <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
               <Text color="#10B981" fontFamily="monospace">const</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"> event = {'{'}</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}type: <Text color="#F59E0B">&apos;task.created&apos;</Text>,</Text>
@@ -120,7 +120,7 @@ export default function DevelopersPage() {
         <YStack gap="$8" marginBottom="$12">
           <H2 color="#fff" fontSize={36} fontWeight="600">Deploy in 5 Minutes</H2>
           <YStack backgroundColor="rgba(255,255,255,0.05)" padding="$8" borderRadius="$6" borderWidth={1} borderColor="rgba(255,255,255,0.1)">
-            <YStack backgroundColor="#000" padding="$4" borderRadius="$4" fontFamily="monospace">
+            <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
               <Text color="#10B981" fontFamily="monospace"># 1. Start the pod (PostgreSQL + MinIO + Redis)</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">$ docker compose up -d</Text>
               <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2">Initializing Event Store...</Text>
