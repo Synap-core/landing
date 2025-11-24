@@ -51,7 +51,7 @@ function BentoCard({ children, colSpan = 1, rowSpan = 1, title, icon: Icon, dela
   colSpan?: number
   rowSpan?: number
   title: string
-  icon: React.ComponentType<{ size?: number; color?: string }>
+  icon: any  // Accept any icon component type
   delay?: number
   zIndex?: number
   color?: string

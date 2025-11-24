@@ -83,7 +83,7 @@ export function Footer() {
             <Text fontSize={14} fontWeight="600" color="#fff" marginBottom="$2">
               Resources
             </Text>
-            <Link href="https://github.com/synap/core#readme" target="_blank" style={{ textDecoration: 'none' }}>
+            <Link href="https://doc.synap.live" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               <Text fontSize={14} color="rgba(255,255,255,0.6)" hoverStyle={{ color: '#10B981' }}>
                 Documentation
               </Text>

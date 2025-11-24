@@ -1,10 +1,14 @@
 'use client'
 
+import type { Metadata } from 'next'
 import { YStack, XStack, H1, H2, H3, Paragraph, Button, Text } from 'tamagui'
 import { ArrowLeft, Terminal, Database, Shield, Zap, Code2, GitBranch, Globe } from 'lucide-react'
 import Link from 'next/link'
 import { Navigation } from '@/components/ui/Navigation'
 import { Footer } from '@/components/ui/Footer'
+
+// Note: metadata export doesn't work in client components, handled in layout
+// But we can add it via next/head if needed
 
 export default function DevelopersPage() {
   return (
