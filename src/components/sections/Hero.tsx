@@ -130,20 +130,45 @@ export function Hero() {
             }}
         >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="primary" size="$5" borderRadius="$10">
+                <Button 
+                  variant="primary" 
+                  size="$5" 
+                  borderRadius="$10"
+                  href="https://github.com/synap/core#quick-start"
+                  tag="a"
+                  target="_blank"
+                  style={{
+                    textDecoration: 'none',
+                    
+                  }}
+                >
                     Deploy in 5 Minutes
                 </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="outline" size="$5" borderRadius="$10" borderColor="$borderColor">
-                    Read the Docs
+                <Button 
+                  variant="outline" 
+                  size="$5" 
+                  borderRadius="$10" 
+                  borderColor="$borderColor"
+                  href="/whitepaper"
+                  tag="a"
+                >
+                    Read the Whitepaper
                 </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button variant="outline" size="$5" borderRadius="$10" borderColor="$borderColor" href="/developers">
+            {/* <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button 
+                  variant="outline" 
+                  size="$5" 
+                  borderRadius="$10" 
+                  borderColor="$borderColor" 
+                  href="/developers"
+                  tag="a"
+                >
                     For Developers →
                 </Button>
-            </motion.div>
+            </motion.div> */}
         </motion.div>
 
         {/* Technical credibility tagline */}

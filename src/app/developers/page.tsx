@@ -1,10 +1,16 @@
-import { YStack, XStack, H1, H2, Paragraph, Button, Text } from 'tamagui'
-import { ArrowLeft, Terminal, Database, Shield, Zap, Code2, GitBranch, Globe } from '@tamagui/lucide-icons'
+'use client'
+
+import { YStack, XStack, H1, H2, H3, Paragraph, Button, Text } from 'tamagui'
+import { ArrowLeft, Terminal, Database, Shield, Zap, Code2, GitBranch, Globe } from 'lucide-react'
 import Link from 'next/link'
+import { Navigation } from '@/components/ui/Navigation'
+import { Footer } from '@/components/ui/Footer'
 
 export default function DevelopersPage() {
   return (
-    <YStack backgroundColor="#050505" minHeight="100vh" padding="$4">
+    <>
+      <Navigation />
+      <YStack backgroundColor="#050505" minHeight="100vh" padding="$4" paddingTop={100 /* Account for fixed nav */}>
       <YStack maxWidth={1200} marginHorizontal="auto" width="100%" paddingTop="$8">
         
         {/* Navigation */}
@@ -62,12 +68,13 @@ export default function DevelopersPage() {
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4" fontFamily="monospace">
               <Text color="#10B981" fontFamily="monospace">const</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"> event = {'{'}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}type: <Text color="#F59E0B">'task.created'</Text>,</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}data: {'{ title: '}}<Text color="#F59E0B">'Call John'</Text>, dueDate: <Text color="#F59E0B">'2025-05-15'</Text> {'}'},</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}userId: <Text color="#F59E0B">'user-123'</Text></Text>
+              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}type: <Text color="#F59E0B">&apos;task.created&apos;</Text>,</Text>
+              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}data: {'{ title: '}</Text>
+              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"><Text color="#F59E0B">&apos;Call John&apos;</Text>, dueDate: <Text color="#F59E0B">&apos;2025-05-15&apos;</Text> {'}'},</Text>
+              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}userId: <Text color="#F59E0B">&apos;user-123&apos;</Text></Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'}'}</Text>
               <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2">
-                {'> '}<Text color="#10B981">await</Text> pod.events.append(event) <Text color="rgba(255,255,255,0.4)">// Immutable append-only log</Text>
+                {'> '}<Text color="#10B981">await</Text> pod.events.append(event) {/* Immutable append-only log */}
               </Text>
             </YStack>
           </YStack>
@@ -81,10 +88,10 @@ export default function DevelopersPage() {
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
               <Text color="#10B981" fontFamily="monospace">const</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"> tasks = <Text color="#10B981">await</Text> client.tasks.list.query({'({'}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}filters: {'{ status: '}<Text color="#F59E0B">'pending'</Text> {'}'},</Text>
+              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}filters: {'{ status: '}<Text color="#F59E0B">&apos;pending&apos;</Text> {'}'},</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}limit: <Text color="#F59E0B">10</Text></Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'}) '}
-                <Text color="rgba(255,255,255,0.4)">// Type-safe, auto-generated</Text>
+                {/* Type-safe, auto-generated */}
               </Text>
             </YStack>
           </YStack>
@@ -98,8 +105,8 @@ export default function DevelopersPage() {
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
               <Text color="#10B981" fontFamily="monospace">const</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"> token = <Text color="#10B981">await</Text> pod.hub.generateAccessToken({'({'}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}scope: [<Text color="#F59E0B">'notes'</Text>, <Text color="#F59E0B">'tasks'</Text>, <Text color="#F59E0B">'calendar'</Text>],</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}expiresIn: <Text color="#F59E0B">300</Text> <Text color="rgba(255,255,255,0.4)">// 5 minutes</Text></Text>
+              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}scope: [<Text color="#F59E0B">&apos;notes&apos;</Text>, <Text color="#F59E0B">&apos;tasks&apos;</Text>, <Text color="#F59E0B">&apos;calendar&apos;</Text>],</Text>
+              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}expiresIn: <Text color="#F59E0B">300</Text> {/* 5 minutes */}</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'})'}  </Text>
             </YStack>
           </YStack>
@@ -112,8 +119,8 @@ export default function DevelopersPage() {
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4" fontFamily="monospace">
               <Text color="#10B981" fontFamily="monospace"># 1. Start the pod (PostgreSQL + MinIO + Redis)</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">$ docker compose up -d</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2">> Initializing Event Store...</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace">> Starting Universal API...</Text>
+              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2">Initializing Event Store...</Text>
+              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace"> Starting Universal API...</Text>
               <Text color="rgba(255,255,255,0.5)" fontFamily="monospace"><Text color="#10B981">✓</Text> Ready on localhost:3000</Text>
               
               <Text color="#10B981" fontFamily="monospace" marginTop="$4"># 2. Run migrations</Text>
@@ -121,7 +128,7 @@ export default function DevelopersPage() {
               
               <Text color="#10B981" fontFamily="monospace" marginTop="$4"># 3. Start API server</Text>
               <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">$ pnpm dev</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2">> Your personal data pod is live ✓</Text>
+              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2"> Your personal data pod is live ✓</Text>
             </YStack>
           </YStack>
         </YStack>
@@ -185,7 +192,7 @@ export default function DevelopersPage() {
               <YStack flex={1} gap="$3">
                 <Text color="#10B981" fontSize={18} fontWeight="600">Sovereign Stack</Text>
                 <Text color="rgba(255,255,255,0.7)">• $0 infrastructure (users self-host)</Text>
-                <Text color="rgba(255,255,255,0.7)">• $0 compliance (user's responsibility)</Text>
+                <Text color="rgba(255,255,255,0.7)">• $0 compliance (user&apos;s responsibility)</Text>
                 <Text color="rgba(255,255,255,0.7)">• $0 data breach risk</Text>
                 <Text color="rgba(255,255,255,0.7)">• Trust-first positioning</Text>
               </YStack>
@@ -197,10 +204,16 @@ export default function DevelopersPage() {
         <YStack gap="$6" marginBottom="$12" alignItems="center">
           <H2 color="#fff" fontSize={36} fontWeight="600" textAlign="center">Ready to Build?</H2>
           <XStack gap="$4" flexWrap="wrap" justifyContent="center">
-            <Button variant="primary" size="$5" borderRadius="$10" href="https://github.com/synap/core">
+            <Button variant="primary" size="$5" borderRadius="$10" href="https://github.com/synap/core" tag="a" target="_blank"
+            style={{
+              textDecoration: 'none',
+            }}>
               View on GitHub
             </Button>
-            <Button variant="outline" size="$5" borderRadius="$10" borderColor="rgba(255,255,255,0.2)" href="https://discord.gg/synap">
+            <Button variant="outline" size="$5" borderRadius="$10" borderColor="rgba(255,255,255,0.2)" href="https://discord.gg/synap" tag="a" target="_blank"
+            style={{
+              textDecoration: 'none',
+            }}>
               Join Discord
             </Button>
           </XStack>
@@ -208,10 +221,12 @@ export default function DevelopersPage() {
 
       </YStack>
     </YStack>
+    <Footer />
+  </>
   )
 }
 
-function FeatureCard({ icon, title, description }: { icon: any, title: string, description: string }) {
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
   return (
     <YStack 
       width={350} 
@@ -228,7 +243,7 @@ function FeatureCard({ icon, title, description }: { icon: any, title: string, d
   )
 }
 
-function CapabilityCard({ icon, title, items }: { icon: any, title: string, items: string[] }) {
+function CapabilityCard({ icon, title, items }: { icon: React.ReactNode, title: string, items: string[] }) {
   return (
     <YStack 
       width={280}

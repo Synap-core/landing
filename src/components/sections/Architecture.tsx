@@ -2,12 +2,12 @@
 
 import { YStack, XStack, H2, H3, Paragraph, Text, Theme } from 'tamagui'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Database, Layers, Puzzle, Globe, ArrowUp, Zap, Calendar, CheckSquare } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { Database, Layers, Puzzle, Globe } from 'lucide-react'
+import { useRef } from 'react'
 
 // --- Components ---
 
-function FlowLine({ delay = 0, duration = 2, vertical = false }) {
+function FlowLine({ delay = 0, duration = 2, vertical = false }: { delay?: number, duration?: number, vertical?: boolean }) {
   return (
     <motion.div
       style={{
@@ -46,7 +46,16 @@ function FlowLine({ delay = 0, duration = 2, vertical = false }) {
   )
 }
 
-function BentoCard({ children, colSpan = 1, rowSpan = 1, title, icon: Icon, delay = 0, zIndex = 0, color = '#fff' }) {
+function BentoCard({ children, colSpan = 1, rowSpan = 1, title, icon: Icon, delay = 0, zIndex = 0, color = '#fff' }: {
+  children: React.ReactNode
+  colSpan?: number
+  rowSpan?: number
+  title: string
+  icon: React.ComponentType<{ size?: number; color?: string }>
+  delay?: number
+  zIndex?: number
+  color?: string
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}

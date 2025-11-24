@@ -68,13 +68,14 @@ export const config = createTamagui({
     ...themes,
     dark: {
         ...themes.dark,
-        background: '#050505',
+        background: '#121212',
         backgroundStrong: '#0A0A0A',
         backgroundTransparent: 'rgba(5, 5, 5, 0.8)',
         primary: '#10B981',
         secondary: '#3B82F6',
         color: '#F3F4F6',
         borderColor: 'rgba(255, 255, 255, 0.1)',
+        outlineColor: 'rgba(16, 185, 129, 0.5)',
     },
     light: {
         ...themes.light,

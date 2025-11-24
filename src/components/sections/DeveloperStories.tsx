@@ -166,7 +166,7 @@ function StoryCard({ story, index, progress, ranges, total }: { story: typeof st
             {/* OLD WAY */}
             <YStack flex={1} gap="$2" opacity={0.6}>
               <Text fontSize={12} color="$color" fontFamily="$mono" textTransform="uppercase" opacity={0.7}>The Old Way</Text>
-              <Paragraph fontSize={18} color="$color" fontStyle="italic">"{story.before.problem}"</Paragraph>
+              <Paragraph fontSize={18} color="$color" fontStyle="italic">&ldquo;{story.before.problem}&rdquo;</Paragraph>
             </YStack>
 
             {/* DIVIDER */}
