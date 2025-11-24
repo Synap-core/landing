@@ -9,56 +9,56 @@ const stories = [
   {
     id: 'saas',
     icon: Code,
-    persona: 'SaaS Builder',
-    name: 'Alex',
+    persona: 'Freelancer Managing 5 Clients',
+    name: 'Scenario',
     before: {
-      title: 'The Old Way',
-      problem: '60% time on user management, auth, and infrastructure.',
-      pain: 'Wanted to build features, not databases.'
+      title: 'Without Synap',
+      problem: '5 separate Notion workspaces ($250/month)',
+      pain: 'Manual data export/import when switching tools. GDPR liability for all client data.'
     },
     after: {
-      title: 'With Synap Core',
-      outcome: 'Shipped 3x faster',
-      detail: 'Users bring their own data pods. Zero migration friction.'
+      title: 'With Synap',
+      outcome: 'One self-hosted pod ($5/month)',
+      detail: 'Clients bring their own data pods. Zero storage cost. GDPR handled at pod level.'
     },
     color: '#10B981',
-    metric: '3x'
+    metric: '50x'
   },
   {
     id: 'privacy',
     icon: Shield,
-    persona: 'Privacy Engineer',
-    name: 'Maria',
+    persona: 'SaaS Startup',
+    name: 'Scenario',
     before: {
-      title: 'The Old Way',
-      problem: 'GDPR compliance nightmare. Legal bills through the roof.',
-      pain: 'Every feature needs audit trails, encryption, deletion workflows.'
+      title: 'Without Synap',
+      problem: 'Building auth, database scaling, GDPR compliance from scratch',
+      pain: 'Legal reviews, audit trails, encryption, data deletion workflows. 60% time on infrastructure.'
     },
     after: {
-      title: 'With Synap Core',
-      outcome: 'Legal costs down 80%',
-      detail: 'Event sourcing gives audit by default. Users control their pods.'
+      title: 'With Synap',
+      outcome: 'Ship features 3x faster',
+      detail: 'Event sourcing gives audit by default. Users control their pods. Focus on features, not plumbing.'
     },
     color: '#3B82F6',
-    metric: '-80%'
+    metric: '3x'
   },
   {
     id: 'opensource',
     icon: Users,
     persona: 'Open Source Maintainer',
-    name: 'Jordan',
+    name: 'Scenario',
     before: {
-      title: 'The Old Way',
-      problem: 'Can\'t monetize. Hosting costs kill margins.',
-      pain: 'Freemium business model unsustainable.'
+      title: 'Without Synap',
+      problem: 'Hosting costs kill margins. Freemium unsustainable.',
+      pain: 'Can\'t monetize without vendor lock-in. Server costs grow with users.'
     },
     after: {
-      title: 'With Synap Core',
-      outcome: 'Profitable from day one',
-      detail: 'Users self-host. One-time purchase. Sustainable OSS.'
+      title: 'With Synap',
+      outcome: 'Sustainable business model',
+      detail: 'Users self-host pods. One-time purchase or subscription. Zero infrastructure costs.'
     },
     color: '#8B5CF6',
-    metric: '$$'
+    metric: '$$$'
   }
 ]
 
@@ -215,12 +215,12 @@ export function DeveloperStories() {
           <YStack maxWidth={900} width="100%" marginHorizontal="auto" height="100%" justifyContent="center">
             
             {/* Header */}
-            <YStack gap="$4" alignItems="center" position="absolute" top="8%" left={0} right={0} zIndex={50}>
-               <Text fontFamily="$mono" fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
-                  For Builders
+            <YStack gap="$3" alignItems="center" position="absolute" top="8%" left={0} right={0} zIndex={50}>
+               <Text fontFamily="$mono" fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase" opacity={0.6}>
+                  Hypothetical Scenarios
                </Text>
                <H2 textAlign="center" fontSize={56} fontFamily="$heading" color="$color" fontWeight="300" letterSpacing={-1}>
-                  Build Features, Not Infrastructure
+                  Use Cases: The Sovereign Stack in Practice
                </H2>
             </YStack>
 

@@ -25,7 +25,7 @@ export function LandingPage() {
         <Architecture />
         <Philosophy />
         <Community />
-        <Specs />
+        {/* <Specs /> - Moved to /developers page */}
       </YStack>
     </>
   )

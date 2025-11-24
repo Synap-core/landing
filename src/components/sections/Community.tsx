@@ -4,14 +4,14 @@ import { YStack, XStack, H2, Paragraph, Text, Theme } from 'tamagui'
 import { motion } from 'framer-motion'
 import { Button } from '../ui/Button'
 import { Github, MessageSquare, Download } from 'lucide-react'
-
-const stats = [
-  { value: '2.4k', label: 'GitHub Stars' },
-  { value: '150+', label: 'Contributors' },
-  { value: '12k', label: 'Self-Hosted' }
-]
+import { useGitHubStats } from '@/hooks/useGitHubStats'
 
 export function Community() {
+  const { stars, contributors, isLoading } = useGitHubStats({ mockStars: 0 })
+  
+  // Progressive disclosure: Show "Building Community" when stars < 10
+  const showBuildingMessage = stars < 10
+
   return (
     <Theme name="dark">
       <YStack 
@@ -54,7 +54,7 @@ export function Community() {
                 fontWeight="300"
                 letterSpacing={-1}
               >
-                Built by Humans, for Humans
+                {showBuildingMessage ? 'Building the Sovereign Web Together' : 'Join the Movement'}
               </H2>
             </motion.div>
 
@@ -71,86 +71,118 @@ export function Community() {
                 opacity={0.6}
                 maxWidth={600}
               >
-                A growing community building the infrastructure for personal intelligence.
+                {showBuildingMessage 
+                  ? "We're just getting started. Join us on GitHub to build the future of user-owned infrastructure."
+                  : "A growing community building the infrastructure for digital sovereignty."}
               </Paragraph>
             </motion.div>
           </YStack>
 
-          {/* Stats */}
-          <XStack 
-            flexWrap="wrap" 
-            justifyContent="center" 
-            gap="$8"
-          >
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-              >
-                <YStack
-                  padding="$6"
-                  backgroundColor="rgba(255, 255, 255, 0.03)"
-                  borderColor="$borderColor"
-                  borderWidth={1}
-                  borderRadius="$8"
-                  alignItems="center"
-                  gap="$2"
-                  minWidth={150}
-                  style={{
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                  }}
+          {/* Conditional Content */}
+          {!showBuildingMessage && (
+            <XStack 
+              gap="$8" 
+              justifyContent="center"
+              flexWrap="wrap"
+            >
+              {[
+                { value: `${stars}`, label: 'GitHub Stars' },
+                { value: `${contributors}+`, label: 'Contributors' },
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <Text fontSize={40} color="$primary" fontWeight="600">
-                    {stat.value}
-                  </Text>
-                  <Text fontSize={14} color="$color" opacity={0.6}>
-                    {stat.label}
-                  </Text>
-                </YStack>
-              </motion.div>
-            ))}
-          </XStack>
+                  <YStack 
+                    alignItems="center" 
+                    gap="$2"
+                    padding="$4"
+                  >
+                    <Text 
+                      fontSize={48} 
+                      fontWeight="700" 
+                      color="$primary"
+                      fontFamily="$heading"
+                    >
+                      {stat.value}
+                    </Text>
+                    <Text 
+                      fontSize={14} 
+                      color="$color" 
+                      opacity={0.6}
+                      textTransform="uppercase"
+                      letterSpacing={1}
+                      fontFamily="$mono"
+                    >
+                      {stat.label}
+                    </Text>
+                  </YStack>
+                </motion.div>
+              ))}
+            </XStack>
+          )}
 
-          {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+          {/* CTAs */}
+          <XStack 
+            gap="$4" 
+            justifyContent="center"
+            flexWrap="wrap"
           >
-            <XStack gap="$4" flexWrap="wrap" justifyContent="center">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
               <Button 
                 variant="primary" 
-                size="$5" 
+                size="$5"
                 borderRadius="$10"
-                iconAfter={Github}
+                href="https://github.com/synap/core"
               >
-                Star on GitHub
+                <XStack gap="$2" alignItems="center">
+                  <Github size={20} />
+                  <Text>Star on GitHub</Text>
+                </XStack>
               </Button>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
               <Button 
                 variant="outline" 
-                size="$5" 
+                size="$5"
                 borderRadius="$10"
                 borderColor="$borderColor"
-                iconAfter={MessageSquare}
+                href="https://discord.gg/synap"
               >
-                Join Discord
+                <XStack gap="$2" alignItems="center">
+                  <MessageSquare size={20} />
+                  <Text>Join Discord</Text>
+                </XStack>
               </Button>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
               <Button 
                 variant="outline" 
-                size="$5" 
+                size="$5"
                 borderRadius="$10"
                 borderColor="$borderColor"
-                iconAfter={Download}
               >
-                Self-Host Now
+                <XStack gap="$2" alignItems="center">
+                  <Download size={20} />
+                  <Text>Self-Host</Text>
+                </XStack>
               </Button>
-            </XStack>
-          </motion.div>
+            </motion.div>
+          </XStack>
         </YStack>
       </YStack>
     </Theme>

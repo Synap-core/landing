@@ -81,7 +81,7 @@ export function Hero() {
             >
               Your code is open source.
               <br />
-              <Text color="$primary">Why isn't your data?</Text>
+              <Text color="$primary">Your data should be too.</Text>
             </H1>
         </motion.div>
         
@@ -101,9 +101,7 @@ export function Hero() {
                 fontWeight="300"
                 marginBottom="$2"
             >
-              Build apps on user-owned data pods.
-              <br/>
-              No databases. No auth. No scaling nightmares.
+              Self-host your digital life. Build apps on user-owned infrastructure.
             </Paragraph>
         </motion.div>
 
@@ -139,6 +137,11 @@ export function Hero() {
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button variant="outline" size="$5" borderRadius="$10" borderColor="$borderColor">
                     Read the Docs
+                </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button variant="outline" size="$5" borderRadius="$10" borderColor="$borderColor" href="/developers">
+                    For Developers →
                 </Button>
             </motion.div>
         </motion.div>
