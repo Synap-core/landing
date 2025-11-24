@@ -32,6 +32,21 @@ const bodyFont = createInterFont(
   }
 )
 
+// Add monospace font for code/technical text
+const monoFont = createInterFont(
+  {
+    family: 'monospace',
+    face: {
+      400: { normal: 'monospace' },
+      700: { normal: 'monospace' },
+    },
+  },
+  {
+    sizeSize: (size) => Math.round(size),
+    sizeLineHeight: (size) => Math.round(size * 1.5),
+  }
+)
+
 import { createAnimations } from '@tamagui/animations-react-native'
 
 const animations = createAnimations({
@@ -63,6 +78,7 @@ export const config = createTamagui({
   fonts: {
     heading: headingFont,
     body: bodyFont,
+    mono: monoFont,  // ✅ ADD THIS
   },
   themes: {
     ...themes,
