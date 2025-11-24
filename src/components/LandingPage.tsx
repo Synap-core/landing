@@ -2,10 +2,11 @@
 
 import { Hero } from '@/components/sections/Hero'
 import { TheShift } from '@/components/sections/TheShift'
+import { Philosophy } from '@/components/sections/Philosophy'
+import { Ecosystem } from '@/components/sections/Ecosystem'
 import { WhyNow } from '@/components/sections/WhyNow'
 import { DeveloperStories } from '@/components/sections/DeveloperStories'
 import { Architecture } from '@/components/sections/Architecture'
-import { Philosophy } from '@/components/sections/Philosophy'
 import { Community } from '@/components/sections/Community'
 import { Specs } from '@/components/sections/Specs'
 import { ScrollProgress } from '@/components/ui/ScrollProgress'
@@ -23,10 +24,11 @@ export function LandingPage() {
       <YStack backgroundColor="$background" minHeight="100vh" paddingTop={60 /* Account for fixed nav */}>
         <Hero />
         <TheShift />
+        <Philosophy />  {/* Moved up - reinforces vision early */}
+        <Ecosystem />   {/* New - answers "what can I do?" */}
         <WhyNow />
         <DeveloperStories />
         <Architecture />
-        <Philosophy />
         <Community />
         {/* <Specs /> - Moved to /developers page */}
       </YStack>

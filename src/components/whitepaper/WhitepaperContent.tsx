@@ -124,7 +124,7 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
             )
           },
           blockquote: ({ node, ...props }) => (
-            <div 
+            <blockquote 
               style={{ 
                 borderLeft: '4px solid #10B981', 
                 paddingLeft: 16,
@@ -137,12 +137,13 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
             />
           ),
           table: ({ node, ...props }) => (
-            <div style={{ overflowX: 'auto', marginBottom: 24 }}>
+            <div style={{ overflowX: 'auto', marginBottom: 40, marginTop: 40 }}>
               <table 
                 style={{ 
-                  borderCollapse: 'collapse',
+                  borderCollapse: 'separate',
+                  borderSpacing: '0 12px',  // Vertical space between rows
                   width: '100%',
-                  border: '1px solid rgba(255,255,255,0.1)'
+                  border: 'none'
                 }}
                 {...props} 
               />
@@ -151,12 +152,14 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
           th: ({ node, ...props }) => (
             <th 
               style={{ 
-                padding: 12,
-                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                padding: '20px 24px',  // More padding
+                backgroundColor: 'rgba(16, 185, 129, 0.12)',  // Subtle emerald
                 color: '#10B981',
-                fontWeight: 600,
+                fontWeight: 700,
                 textAlign: 'left',
-                border: '1px solid rgba(255,255,255,0.1)'
+                fontSize: 16,
+                borderRadius: '8px 8px 0 0',
+                border: 'none'
               }}
               {...props} 
             />
@@ -164,9 +167,14 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
           td: ({ node, ...props }) => (
             <td 
               style={{ 
-                padding: 12,
-                color: 'rgba(255,255,255,0.8)',
-                border: '1px solid rgba(255,255,255,0.1)'
+                padding: '20px 24px',  // More padding
+                color: 'rgba(255,255,255,0.9)',  // Better contrast
+                backgroundColor: 'rgba(255,255,255,0.03)',
+                borderRadius: '0 0 8px 8px',
+                fontSize: 15,
+                lineHeight: 1.8,  // More breathing room
+                verticalAlign: 'top',
+                border: 'none'
               }}
               {...props} 
             />

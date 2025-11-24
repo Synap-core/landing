@@ -146,7 +146,7 @@ export function TheShift() {
                 <Text fontFamily="$mono" color="#525252" fontSize={12}>STATUS: RESTRICTED</Text>
               </YStack>
 
-              {/* LAYER 2: THE LIVING PRISM (Sovereign Future) */}
+              {/* LAYER 2: THE LIVING PRISM (Sovereign Future) - EMERALD THEMED */}
               <motion.div
                 style={{
                   position: 'absolute',
@@ -158,39 +158,41 @@ export function TheShift() {
                   width: '100%',
                   maxWidth: 900,
                   height: '100%',
-                  // High Contrast Obsidian Glass
-                  background: 'rgba(5, 5, 5, 0.95)', // Almost opaque to hide the layer below
+                  background: 'rgba(5, 5, 5, 0.95)', // Same opacity as Feudal
                   borderRadius: 20,
                   padding: 32,
-                  boxSizing: 'border-box', // CRITICAL: Match YStack's border-box sizing
+                  boxSizing: 'border-box',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   clipPath: maskImage,
                   backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  boxShadow: '0 0 40px rgba(16, 185, 129, 0.1)'
+                  border: '1px solid rgba(16, 185, 129, 0.3)',  // Emerald border (matching Feudal's structure)
+                  boxShadow: '0 20px 50px rgba(16, 185, 129, 0.3)'  // Emerald shadow (matching Feudal's structure)
                 }}
                 animate={{
                     boxShadow: [
-                        '0 0 40px rgba(16, 185, 129, 0.1)',
-                        '0 0 60px rgba(16, 185, 129, 0.2)',
-                        '0 0 40px rgba(16, 185, 129, 0.1)'
+                        '0 20px 50px rgba(16, 185, 129, 0.3)',
+                        '0 20px 50px rgba(16, 185, 129, 0.5)',  // Subtle pulse
+                        '0 20px 50px rgba(16, 185, 129, 0.3)'
                     ]
                 }}
                 transition={{
-                    duration: 4,
+                    duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut"
                 }}
               >
+                 {/* "THE SOLUTION" Badge */}
+      
+
                  {/* Gradient Border Overlay */}
                  <div style={{ 
                      position: 'absolute', 
                      inset: 0, 
                      borderRadius: 20, 
                      padding: 1, 
-                     background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(59, 130, 246, 0.5), rgba(245, 158, 11, 0.3))', 
+                     background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(59, 130, 246, 0.3), rgba(245, 158, 11, 0.2))', 
                      mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', 
                      maskComposite: 'exclude', 
                      pointerEvents: 'none',
@@ -198,27 +200,66 @@ export function TheShift() {
                  }} />
 
                  <XStack justifyContent="space-between" alignItems="center">
-                  <H2 fontSize={40} fontFamily="$heading" color="#fff" fontWeight="400" style={{ textShadow: '0 0 30px rgba(16,185,129,0.4)' }}>Sovereign Web</H2>
-                  {/* <Sun size={32} color="#FCD34D" style={{ filter: 'drop-shadow(0 0 10px rgba(252, 211, 77, 0.5))' }} /> */}
+                  <H2 fontSize={40} fontFamily="$heading" color="#fff" fontWeight="500" style={{ textShadow: '0 0 30px rgba(16,185,129,0.4)' }}>
+                    The Sovereign Web
+                  </H2>
                 </XStack>
                 
                 <YStack gap="$6">
                   {sovereignPoints.map((pt, i) => (
                     <XStack key={i} gap="$6" alignItems="center">
-                      <YStack padding="$3" backgroundColor="rgba(16, 185, 129, 0.1)" borderRadius="$8" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.1)' }}>
-                        <pt.icon size={24} color="#6EE7B7" />
+                      <YStack 
+                        padding="$3" 
+                        backgroundColor="rgba(16, 185, 129, 0.1)" 
+                        borderRadius="$8" 
+                        borderWidth={1} 
+                        borderColor="rgba(16, 185, 129, 0.2)"
+                        style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.2)' }}  // Green shadow like icons
+                      >
+                        <pt.icon size={24} color="#10B981" />
                       </YStack>
                       <YStack>
                         <Text fontSize={20} fontFamily="$body" color="#fff" fontWeight="500">{pt.text}</Text>
-                        <Text fontSize={14} color="#D1FAE5" opacity={0.8}>{pt.sub}</Text>
+                        <Text fontSize={14} color="#D1FAE5" opacity={0.9}>{pt.sub}</Text>
                       </YStack>
                     </XStack>
                   ))}
                 </YStack>
 
-                <XStack alignItems="center" gap="$2">
-                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 10px #10B981' }} />
-                    <Text fontFamily="$mono" color="#10B981" fontSize={12} style={{ textShadow: '0 0 10px rgba(16, 185, 129, 0.5)' }}>STATUS: ONLINE</Text>
+                {/* CTA Button */}
+                <XStack gap="$4" alignItems="center" justifyContent="space-between">
+                  <XStack alignItems="center" gap="$2">
+                      <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 10px #10B981' }} />
+                      <Text fontFamily="$mono" color="#10B981" fontSize={12}>STATUS: SOVEREIGN</Text>
+                  </XStack>
+                  
+                  <a 
+                    href="/developers" 
+                    style={{ 
+                      textDecoration: 'none',
+                      backgroundColor: '#10B981',
+                      color: '#000',
+                      padding: '12px 24px',
+                      borderRadius: 12,
+                      fontSize: 14,
+                      fontWeight: 600,
+                      boxShadow: '0 4px 20px rgba(16, 185, 129, 0.3)',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#0ea373'
+                      e.currentTarget.style.transform = 'translateY(-2px)'
+                      e.currentTarget.style.boxShadow = '0 6px 25px rgba(16, 185, 129, 0.4)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = '#10B981'
+                      e.currentTarget.style.transform = 'translateY(0)'
+                      e.currentTarget.style.boxShadow = '0 4px 20px rgba(16, 185, 129, 0.3)'
+                    }}
+                  >
+                    Get Started →
+                  </a>
                 </XStack>
               </motion.div>
 

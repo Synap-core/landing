@@ -2,7 +2,7 @@
 
 **A Technical Manifesto for Human-Centric Digital Infrastructure**
 
-*Version 1.0 • November 2024*
+*Version 1.1 • November 2024*
 
 ---
 
@@ -38,80 +38,72 @@ The platforms know this. **Vendor lock-in is not a bug—it's the business model
 
 To understand where we're going, we must understand where we've been.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    The Evolution of the Web                      │
-└─────────────────────────────────────────────────────────────────┘
+---
 
-┌──────────────┬──────────────┬──────────────┬──────────────────┐
-│   WEB 1.0    │   WEB 2.0    │   WEB 3.0    │   WEB 2.5        │
-│   (1990s)    │   (2000s)    │   (2010s)    │   (OUR VISION)   │
-├──────────────┼──────────────┼──────────────┼──────────────────┤
-│              │              │              │                  │
-│ ✅ Ownership │ ✅ Amazing UX│ ✅ Right     │ ✅ Ownership     │
-│ ✅ Open      │ ✅ Scale     │    Vision    │ ✅ Great UX      │
-│    Standards │ ✅ Accessible│              │ ✅ Pragmatic     │
-│              │              │ ❌ Complex   │ ✅ Standards     │
-│ ❌ Terrible  │ ❌ Silos     │ ❌ Ideology  │ ✅ Developer     │
-│    UX        │ ❌ Lock-in   │    First     │    Experience    │
-│ ❌ Technical │ ❌ No Privacy│ ❌ Gas Fees  │                  │
-│    Barriers  │ ❌ Rent, Not │ ❌ Not       │ ❌ None of the   │
-│              │    Own       │    Mainstream│    Baggage       │
-└──────────────┴──────────────┴──────────────┴──────────────────┘
-```
-
-### Web 1.0: The Era of True Ownership (1990-2004)
+### 📼 Web 1.0 (1990s): The Era of Ownership
 
 **What It Got Right:**
-- You **bought** software. You owned it forever.
-- You **downloaded** files. They were yours.
-- Open standards (HTML, HTTP, Email) meant no vendor could lock you in.
+- ✅ **True Ownership**: You bought software, owned it forever
+- ✅ **Open Standards**: HTML, HTTP — no vendor lock-in
+- ✅ **Decentralized**: Your site, your server
 
 **Where It Failed:**
-- The UX was terrible (command lines, FTP, manual installs).
-- No mainstream adoption (only tech-savvy users could participate).
-- Collaboration was painful (emailing files back and forth).
+- ❌ **Terrible UX**: Command lines, FTP, manual everything
+- ❌ **Technical Barriers**: Only tech-savvy users could participate
+- ❌ **No Collaboration**: Email attachments and pain
 
-### Web 2.0: The Era of Platforms (2005-2020)
+**The Lesson**: Ownership is essential, but UX can't be sacrificed.
+
+---
+
+### 🌐 Web 2.0 (2000s): The Era of Platforms
 
 **What It Got Right:**
-- **Incredible UX**: Click a button, it just works. No installation, no configuration.
-- **Mainstream**: Billions of users could participate.
-- **Collaboration**: Real-time editing, comments, sharing—seamless.
+- ✅ **Amazing UX**: Click a button, it just works
+- ✅ **Mainstream**: Billions could participate
+- ✅ **Collaboration**: Real-time editing, seamless sharing
 
 **Where It Failed:**
-- You stopped owning anything. Everything became a **rental**.
-- Platforms became **silos**. Your data was trapped, your identity fractured.
-- The business model shifted: **you became the product**, not the customer.
-- Privacy evaporated. Your data was monetized, surveilled, and sold.
+- ❌ **Silos**: Your data trapped in walled gardens
+- ❌ **Vendor Lock-in**: Migration costs > 10x investment
+- ❌ **No Privacy**: You became the product
+- ❌ **Rent Forever**: Monthly subscriptions, never own
 
-### Web 3.0: The Era of Broken Promises (2017-Present)
+**The Lesson**: Great UX is essential, but ownership can't be sacrificed.
+
+---
+
+### ⛓️ Web 3.0 (2010s): The Era of Broken Promises
 
 **What It Got Right:**
-- The **vision** was correct: data ownership, sovereignty, decentralization.
-- It proved there's **demand** for these principles—people *want* to own their digital lives.
+- ✅ **The Vision**: Data sovereignty, user ownership
+- ✅ **Proved Demand**: People want to own their digital lives
 
 **Where It Failed:**
-- **Ideology over pragmatism**: It led with complex concepts (blockchain, gas fees, wallets) instead of solving real problems.
-- **Terrible UX**: Seed phrases, private keys, transaction fees—mainstream users bounced immediately.
-- **Technical complexity**: Developers had to learn entirely new paradigms just to build simple apps.
-- **No compelling use case**: Most web3 apps were worse versions of web2 apps, just "decentralized."
+- ❌ **Complexity**: Gas fees, seed phrases, wallets
+- ❌ **Ideology First**: Led with tech instead of solving problems
+- ❌ **Terrible UX**: Even worse than Web 1.0
+- ❌ **Not Mainstream**: Only crypto-natives participated
 
-**The Lesson**: People don't want decentralization for its own sake. They want **ownership, control, and interoperability**. Web3 confused the means (blockchain) with the end (sovereignty).
+**The Lesson**: Vision is right, execution was wrong. People don't want decentralization for its own sake—they want **ownership, control, and interoperability**. Web3 confused the means (blockchain) with the end (sovereignty).
 
-### Web 2.5: Our Synthesis (2024-Present)
+---
 
-We take the best of each era and leave the rest:
+### ✨ Web 2.5 (2025+): Our Synthesis
 
-| From Web 1.0 | From Web 2.0 | From Web 3.0 | We Reject |
-|--------------|--------------|--------------|-----------|
-| ✅ True ownership | ✅ Amazing UX | ✅ Sovereignty vision | ❌ Terrible UX (Web 1) |
-| ✅ Open standards | ✅ Mainstream accessibility | ✅ Data portability | ❌ Silos (Web 2) |
-| ✅ Buy once, own forever | ✅ Real-time collaboration | ✅ User control | ❌ Complexity (Web 3) |
-|  | ✅ Developer experience |  | ❌ Gas fees (Web 3) |
-|  |  |  | ❌ Vendor lock-in (All) |
+**What We Keep:**
+- ✅ **Ownership** (from Web 1.0)
+- ✅ **Amazing UX** (from Web 2.0)
+- ✅ **Sovereignty Vision** (from Web 3.0)
+- ✅ **Pragmatism**: Self-host when ready, not forced
 
-**The result**: A system that feels like Web 2.0 but respects you like Web 1.0, with the sovereignty promised by Web 3.0—**without the baggage**.
+**What We Fix:**
+- ❌ No silos (data is portable)
+- ❌ No lock-in (apps are interchangeable)
+- ❌ No complexity (Docker one-liner)
+- ❌ No blockchain baggage (just infrastructure)
+
+**The Result**: A system that feels like Web 2.0 but respects you like Web 1.0, with the sovereignty promised by Web 3.0—**without the baggage**.
 
 ---
 
@@ -126,51 +118,92 @@ Instead of your data scattered across dozens of platforms, it lives in **one pla
 - **Self-hosted or managed** (your choice): Run it on your own server, or let us host it—but the data is **always** yours, portable, and under your control.
 - **Event-sourced**: Every action becomes an immutable event. Complete history, full audit trail, perfect for AI.
 - **Structured & queryable**: Not just files and folders—your tasks, notes, contacts, calendar are all **typed, relational, and intelligent**.
-- **Extensible**: New capabilities can be added via **plugins**—APIs that connect to your EVE with granular permissions.
+- **Extensible**: New capabilities can be added via**plugins**—APIs that connect to your EVE with granular permissions.
 
 ### The Architecture: Three Layers
 
+Instead of monolithic apps, Synap Core is built on a layered architecture where each layer has a clear purpose.
+
+---
+
+### Layer 3: Intelligence & Applications
+
+**The User Experience Layer**
+
+This is what you interact with: apps, AI agents, and intelligent features.
+
+**Key Capabilities:**
+- 🎨 **Apps as "Views"**: Switch tools without migrating data
+- 🤖 **AI Integration**: Agents work ON your data (don't own it)
+- 🔌 **Plugin Ecosystem**: Add capabilities on demand
+- 🏢 **Proprietary Intelligence**: Our Intelligence Hub and community plugins
+
+**Technical Stack:**
+- tRPC for type-safe APIs
+- LangGraph for AI workflows
+- Vercel AI SDK (provider-agnostic)
+
+---
+
+### Layer 2: The Data Pod (EVE)
+
+**The Sovereignty Layer**
+
+This is YOUR infrastructure—the core that holds your data.
+
+**Key Capabilities:**
+- 📦 **Event Store**: Immutable audit trail (TimescaleDB)
+- 🌐 **Universal API**: One API for all data types (tRPC)
+- 🔐 **Plugin System**: Authorized, scoped access
+- 🤝 **Hub Protocol**: Secure AI ↔ Pod communication
+- 💾 **Storage Abstraction**: Hybrid model (metadata in PostgreSQL, content in R2/MinIO)
+
+**Technical Stack:**
+- PostgreSQL + TimescaleDB + pgvector
+- Drizzle ORM
+- Cloudflare R2 or MinIO
+
+---
+
+### Layer 1: Infrastructure
+
+**The Foundation Layer**
+
+The proven technologies that make it reliable and scalable.
+
+**Key Capabilities:**
+- 🗄️ **PostgreSQL + TimescaleDB**: Event log with time-series optimization
+- 🔍 **pgvector**: Semantic search for AI features
+- 📁 **Cloudflare R2 / MinIO**: Scalable content storage
+- 🐳 **Docker**: One-command deployment
+
+**Why These Choices:**
+- Battle-tested (not experimental)
+- Self-hostable (no vendor dependency)
+- Scalable (single user → thousands)
+
+---
+
+**🔗 How They Connect:**
+
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    THE SOVEREIGN STACK                           │
-└─────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────────┐
-│  Layer 3: Intelligence & Applications                            │
-│                                                                  │
-│  • Apps become "views" on YOUR data                              │
-│  • Switch tools without migrating data                           │
-│  • AI agents work ON your data (don't own it)                    │
-│  • Proprietary intelligence (our Intelligence Hub)               │
-│  • Community plugins and features                                │
-└─────────────────────────────────────────────────────────────────┘
-                           ↕ (Universal API - tRPC)
-┌─────────────────────────────────────────────────────────────────┐
-│  Layer 2: The Data Pod (EVE)                                     │
-│                                                                  │
-│  • Event Store (TimescaleDB - immutable log)                     │
-│  • Universal API (tRPC - type-safe)                              │
-│  • Plugin System (authorized access)                             │
-│  • Hub Protocol (AI integration)                                 │
-│  • Storage Abstraction (R2/MinIO)                                │
-└─────────────────────────────────────────────────────────────────┘
-                           ↕ (Self-host or Managed)
-┌─────────────────────────────────────────────────────────────────┐
-│  Layer 1: Infrastructure                                         │
-│                                                                  │
-│  • PostgreSQL + TimescaleDB (event log)                          │
-│  • pgvector (semantic search)                                    │
-│  • Cloudflare R2 / MinIO (content storage)                       │
-│  • Docker (one-command deployment)                               │
-└─────────────────────────────────────────────────────────────────┘
+User → App (Layer 3) 
+      → Universal API (tRPC)
+      → Event Store (Layer 2)
+      → PostgreSQL (Layer 1)
 ```
 
-#### Layer 1: EVE (Your Data Pod)
+Every interaction flows through the layers, ensuring consistency, auditability, and extensibility.
 
-**Event Sourcing at the Core:**
+---
 
-Every action—creating a note, completing a task, scheduling a meeting—becomes an **immutable event** in your personal event store.
+## The Technical Deep-Dive: How EVE Works
 
+### Event Store (TimescaleDB)
+
+All state changes are stored as **immutable events** in a TimescaleDB hypertable (optimized for time-series data):
+
+**Example Event:**
 ```typescript
 const event = {
   type: 'task.created',
@@ -227,9 +260,7 @@ const tasks = await plugin.api.tasks.list()
 
 This is the **"App Store model, but for your data"**: apps must ask permission, work is sandboxed, and you can revoke access anytime.
 
-#### Layer 2: Intelligence & Applications
-
-**Apps Become "Views" on Your Data:**
+### Apps Become "Views" on Your Data
 
 In the old model, each app owns a slice of your life:
 - Todoist owns your tasks
@@ -275,7 +306,7 @@ At any point, you can export your entire EVE—every event, every file, every re
 
 This isn't a "gimped CSV export." This is **your entire digital life, fully reconstructible**, ready to be imported into any compatible system.
 
-#### Layer 3: The Future - Event Chain
+### The Future: Event Chain
 
 In the long term, we envision a **distributed Event Chain**: a lightweight blockchain that interconnects individual EVEs.
 
@@ -291,36 +322,7 @@ In the long term, we envision a **distributed Event Chain**: a lightweight block
 
 ---
 
-## The Technical Deep-Dive: How EVE Works
-
-### Event Store (TimescaleDB)
-
-All state changes are stored as **immutable events** in a TimescaleDB hypertable (optimized for time-series data):
-
-**Schema**:
-```sql
-CREATE TABLE events (
-  id UUID PRIMARY KEY,
-  aggregate_type TEXT NOT NULL,  -- 'task', 'note', 'event'
-  aggregate_id UUID NOT NULL,    -- ID of the entity
-  event_type TEXT NOT NULL,      -- 'task.created', 'note.updated'
-  version INT NOT NULL,          -- Optimistic concurrency
-  user_id UUID NOT NULL,         -- Owner
-  data JSONB NOT NULL,           -- Event payload
-  metadata JSONB,                -- Additional context
-  timestamp TIMESTAMPTZ NOT NULL,
-  source TEXT NOT NULL           -- 'api', 'automation', 'hub'
-);
-
--- Convert to hypertable for time-series optimization
-SELECT create_hypertable('events', 'timestamp');
-```
-
-**Benefits**:
-- **Immutability**: Events are never updated or deleted—only appended.
-- **Audit Trail**: Full history of every change, perfect for compliance.
-- **Replay**: Rebuild any entity's state by replaying its events.
-- **AI Context**: LLMs can read the event log to understand temporal patterns.
+## Technical Details: Security & Performance
 
 ### Row-Level Security (RLS)
 
@@ -448,7 +450,7 @@ Metadata lives in PostgreSQL. Content lives in object storage (R2/MinIO):
 
 ```typescript
 // Upload a note
-const content = "# Meeting Notes\n\nDiscussed Q4 budget..."
+const content = "# Meeting Notes\\n\\nDiscussed Q4 budget..."
 const path = storage.buildPath(userId, 'note', noteId, 'md')
 
 const file = await storage.upload(path, content, {
@@ -508,7 +510,7 @@ Because apps have no ongoing infrastructure costs, they can offer:
 - **Buy once, use forever** (like Web 1.0)
 - Or: **Optional subscriptions** for premium AI features
 
-**Example**:
+**Example:**
 
 | Old Model (SaaS) | New Model (Sovereign Stack) |
 |------------------|------------------------------|
@@ -526,7 +528,7 @@ Over 5 years:
 
 ## The Path Forward: Adoption Strategy
 
-### Phase 1: Developers (Year 1)
+### Phase 1: Developers
 
 **Target**: Individual developers, tech-savvy early adopters
 
@@ -540,12 +542,12 @@ Over 5 years:
 - They can self-host (no dependency on us).
 - They'll build the first plugins (bootstrapping the ecosystem).
 
-**GTM**:
+**Go-To-Market**:
 - Open source (GitHub)
 - Dev community (Hacker News, Reddit, Dev.to)
 - Technical content (architecture deep-dives, tutorials)
 
-### Phase 2: Knowledge Workers (Year 2)
+### Phase 2: Knowledge Workers
 
 **Target**: Freelancers, consultants, creatives, privacy-conscious professionals
 
@@ -559,12 +561,12 @@ Over 5 years:
 - They hate vendor lock-in (high switching costs).
 - They value privacy (don't want data in big tech clouds).
 
-**GTM**:
+**Go-To-Market**:
 - Content marketing (case studies, comparisons)
 - Vertical apps (e.g., "Kickoff" for entrepreneurs)
 - Freemium model (hosted EVE with limits)
 
-### Phase 3: Teams (Year 3-4)
+### Phase 3: Teams
 
 **Target**: Small-to-medium teams (10-100 people)
 
@@ -578,7 +580,7 @@ Over 5 years:
 - Network effects (more users = more valuable)
 - Enterprise demand (privacy + control)
 
-**GTM**:
+**Go-To-Market**:
 - Team plans ($10-20/user/month or self-hosted)
 - Referral programs
 - Case studies from early adopters
@@ -630,5 +632,5 @@ Join us.
 
 ---
 
-*Version 1.0 • November 2024*  
+*Version 1.1 • November 2024*  
 *Written by Antoine • Founder, Synap Core*
