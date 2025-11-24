@@ -70,14 +70,14 @@ export default function DevelopersPage() {
               All state changes are captured as immutable events in TimescaleDB. Every action becomes an auditable, replayable event.
             </Paragraph>
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
-              <Text color="#10B981" fontFamily="monospace">const</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"> event = {'{'}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}type: <Text color="#F59E0B">&apos;task.created&apos;</Text>,</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}data: {'{ title: '}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"><Text color="#F59E0B">&apos;Call John&apos;</Text>, dueDate: <Text color="#F59E0B">&apos;2025-05-15&apos;</Text> {'}'},</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}userId: <Text color="#F59E0B">&apos;user-123&apos;</Text></Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'}'}</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2">
+              <Text color="#10B981" style={{ fontFamily: "monospace" }}>const</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}> event = {'{'}</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'  '}type: <Text color="#F59E0B">&apos;task.created&apos;</Text>,</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'  '}data: {'{ title: '}</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}><Text color="#F59E0B">&apos;Call John&apos;</Text>, dueDate: <Text color="#F59E0B">&apos;2025-05-15&apos;</Text> {'}'},</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'  '}userId: <Text color="#F59E0B">&apos;user-123&apos;</Text></Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'}'}</Text>
+              <Text color="rgba(255,255,255,0.5)" style={{ fontFamily: "monospace" }} marginTop="$2">
                 {'> '}<Text color="#10B981">await</Text> pod.events.append(event) {/* Immutable append-only log */}
               </Text>
             </YStack>
@@ -90,11 +90,11 @@ export default function DevelopersPage() {
               Type-safe, auto-generated APIs for all data operations. No more REST boilerplate.
             </Paragraph>
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
-              <Text color="#10B981" fontFamily="monospace">const</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"> tasks = <Text color="#10B981">await</Text> client.tasks.list.query({'({'}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}filters: {'{ status: '}<Text color="#F59E0B">&apos;pending&apos;</Text> {'}'},</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}limit: <Text color="#F59E0B">10</Text></Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'}) '}
+              <Text color="#10B981" style={{ fontFamily: "monospace" }}>const</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}> tasks = <Text color="#10B981">await</Text> client.tasks.list.query({'({'}</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'  '}filters: {'{ status: '}<Text color="#F59E0B">&apos;pending&apos;</Text> {'}'},</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'  '}limit: <Text color="#F59E0B">10</Text></Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'}) '}
                 {/* Type-safe, auto-generated */}
               </Text>
             </YStack>
@@ -107,11 +107,11 @@ export default function DevelopersPage() {
               Secure AI-to-pod communication with scoped access tokens and audit trails.
             </Paragraph>
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
-              <Text color="#10B981" fontFamily="monospace">const</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace"> token = <Text color="#10B981">await</Text> pod.hub.generateAccessToken({'({'}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}scope: [<Text color="#F59E0B">&apos;notes&apos;</Text>, <Text color="#F59E0B">&apos;tasks&apos;</Text>, <Text color="#F59E0B">&apos;calendar&apos;</Text>],</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'  '}expiresIn: <Text color="#F59E0B">300</Text> {/* 5 minutes */}</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">{'})'}  </Text>
+              <Text color="#10B981" style={{ fontFamily: "monospace" }}>const</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}> token = <Text color="#10B981">await</Text> pod.hub.generateAccessToken({'({'}</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'  '}scope: [<Text color="#F59E0B">&apos;notes&apos;</Text>, <Text color="#F59E0B">&apos;tasks&apos;</Text>, <Text color="#F59E0B">&apos;calendar&apos;</Text>],</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'  '}expiresIn: <Text color="#F59E0B">300</Text> {/* 5 minutes */}</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>{'})'}  </Text>
             </YStack>
           </YStack>
         </YStack>
@@ -121,18 +121,18 @@ export default function DevelopersPage() {
           <H2 color="#fff" fontSize={36} fontWeight="600">Deploy in 5 Minutes</H2>
           <YStack backgroundColor="rgba(255,255,255,0.05)" padding="$8" borderRadius="$6" borderWidth={1} borderColor="rgba(255,255,255,0.1)">
             <YStack backgroundColor="#000" padding="$4" borderRadius="$4">
-              <Text color="#10B981" fontFamily="monospace"># 1. Start the pod (PostgreSQL + MinIO + Redis)</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">$ docker compose up -d</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2">Initializing Event Store...</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace"> Starting Universal API...</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace"><Text color="#10B981">✓</Text> Ready on localhost:3000</Text>
+              <Text color="#10B981" style={{ fontFamily: "monospace" }}># 1. Start the pod (PostgreSQL + MinIO + Redis)</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>$ docker compose up -d</Text>
+              <Text color="rgba(255,255,255,0.5)" style={{ fontFamily: "monospace" }} marginTop="$2">Initializing Event Store...</Text>
+              <Text color="rgba(255,255,255,0.5)" style={{ fontFamily: "monospace" }}> Starting Universal API...</Text>
+              <Text color="rgba(255,255,255,0.5)" style={{ fontFamily: "monospace" }}><Text color="#10B981">✓</Text> Ready on localhost:3000</Text>
               
-              <Text color="#10B981" fontFamily="monospace" marginTop="$4"># 2. Run migrations</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">$ cd packages/database && pnpm db:migrate</Text>
+              <Text color="#10B981" style={{ fontFamily: "monospace" }} marginTop="$4"># 2. Run migrations</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>$ cd packages/database && pnpm db:migrate</Text>
               
-              <Text color="#10B981" fontFamily="monospace" marginTop="$4"># 3. Start API server</Text>
-              <Text color="rgba(255,255,255,0.9)" fontFamily="monospace">$ pnpm dev</Text>
-              <Text color="rgba(255,255,255,0.5)" fontFamily="monospace" marginTop="$2"> Your personal data pod is live ✓</Text>
+              <Text color="#10B981" style={{ fontFamily: "monospace" }} marginTop="$4"># 3. Start API server</Text>
+              <Text color="rgba(255,255,255,0.9)" style={{ fontFamily: "monospace" }}>$ pnpm dev</Text>
+              <Text color="rgba(255,255,255,0.5)" style={{ fontFamily: "monospace" }} marginTop="$2"> Your personal data pod is live ✓</Text>
             </YStack>
           </YStack>
         </YStack>
