@@ -1,8 +1,9 @@
 'use client'
 
 import { YStack, XStack, H2, H3, Paragraph, Text, Theme } from 'tamagui'
-import { motion } from 'framer-motion'
-import { Code, Shield, Users } from 'lucide-react'
+import { motion, useScroll, useTransform, MotionValue, useSpring } from 'framer-motion'
+import { Code, Shield, Users, CheckCircle2 } from 'lucide-react'
+import { useRef } from 'react'
 
 const stories = [
   {
@@ -10,172 +11,250 @@ const stories = [
     icon: Code,
     persona: 'SaaS Builder',
     name: 'Alex',
-    problem: '"I spend 60% of my time on user data management, auth, and infrastructure. I just want to build features."',
-    solution: 'With Synap Core: Users bring their own data pods. Alex builds the interface and intelligence layer. No database management, no auth headaches, no scaling nightmares.',
-    outcome: 'Shipped 3x faster. Users own their data. Zero migration friction when they churn.',
-    color: '#10B981'
+    before: {
+      title: 'The Old Way',
+      problem: '60% time on user management, auth, and infrastructure.',
+      pain: 'Wanted to build features, not databases.'
+    },
+    after: {
+      title: 'With Synap Core',
+      outcome: 'Shipped 3x faster',
+      detail: 'Users bring their own data pods. Zero migration friction.'
+    },
+    color: '#10B981',
+    metric: '3x'
   },
   {
     id: 'privacy',
     icon: Shield,
     persona: 'Privacy Engineer',
     name: 'Maria',
-    problem: '"GDPR compliance is a nightmare. Every feature needs audit trails, encryption, and deletion workflows. Our legal bills are insane."',
-    solution: 'With Synap Core: Event sourcing gives complete audit trails by default. Users control their own pods—no central data to secure. Deletion is instant (their pod, their rules).',
-    outcome: 'GDPR compliance built-in. Legal costs down 80%. Users trust us because we literally can\'t access their data.',
-    color: '#3B82F6'
+    before: {
+      title: 'The Old Way',
+      problem: 'GDPR compliance nightmare. Legal bills through the roof.',
+      pain: 'Every feature needs audit trails, encryption, deletion workflows.'
+    },
+    after: {
+      title: 'With Synap Core',
+      outcome: 'Legal costs down 80%',
+      detail: 'Event sourcing gives audit by default. Users control their pods.'
+    },
+    color: '#3B82F6',
+    metric: '-80%'
   },
   {
     id: 'opensource',
     icon: Users,
     persona: 'Open Source Maintainer',
     name: 'Jordan',
-    problem: '"I built an amazing tool but can\'t monetize it. Hosting user data costs a fortune. Freemium kills my margins."',
-    solution: 'With Synap Core: Users self-host their data. Jordan sells the app as a one-time purchase. No ongoing infrastructure costs. Sustainable open source business model.',
-    outcome: 'Profitable from day one. Users pay once, own forever. Community grows because data isn\'t locked in.',
-    color: '#8B5CF6'
+    before: {
+      title: 'The Old Way',
+      problem: 'Can\'t monetize. Hosting costs kill margins.',
+      pain: 'Freemium business model unsustainable.'
+    },
+    after: {
+      title: 'With Synap Core',
+      outcome: 'Profitable from day one',
+      detail: 'Users self-host. One-time purchase. Sustainable OSS.'
+    },
+    color: '#8B5CF6',
+    metric: '$$'
   }
 ]
 
+function StoryCard({ story, index, progress, ranges, total }: { story: typeof stories[0], index: number, progress: MotionValue<number>, ranges: number[], total: number }) {
+  // Ranges: [entryStart, entryEnd, exitStart, exitEnd]
+  // entryStart/End might be -1 if it's the first card (no entry animation)
+  
+  const [entryStart, entryEnd, exitStart, exitEnd] = ranges
+  
+  // Physics
+  const smoothProgress = useSpring(progress, { damping: 20, stiffness: 100 })
+
+  // --- Transforms ---
+  
+  // Scale: 
+  // 1. Entry: 0.9 -> 1
+  // 2. Active: 1
+  // 3. Exit: 1 -> 0.9
+  const scale = useTransform(smoothProgress, 
+    [entryStart, entryEnd, exitStart, exitEnd], 
+    [0.9, 1, 1, 0.9]
+  )
+
+  // Y Position:
+  // 1. Entry: 50 -> 0 (Slides up into place)
+  // 2. Active: 0
+  // 3. Exit: 0 -> -150 (Slides up and away)
+  const y = useTransform(smoothProgress,
+    [entryStart, entryEnd, exitStart, exitEnd],
+    [50, 0, 0, -150]
+  )
+
+  // Rotation (Exit only):
+  const rotateX = useTransform(smoothProgress,
+    [exitStart, exitEnd],
+    [0, -15]
+  )
+
+  // Opacity:
+  // 1. Entry: 0 -> 1
+  // 2. Active: 1
+  // 3. Exit: 1 -> 0
+  const opacity = useTransform(smoothProgress,
+    [entryStart, entryEnd, exitStart, exitEnd],
+    [0, 1, 1, 0]
+  )
+
+  // Brightness/Filter (Optional depth cue)
+  const brightness = useTransform(smoothProgress,
+    [entryStart, entryEnd],
+    [0.5, 1]
+  )
+
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: total - index, 
+        rotateX,
+        y,
+        scale,
+        opacity,
+        filter: useTransform(brightness, v => `brightness(${v})`),
+        transformOrigin: 'top center',
+        transformStyle: 'preserve-3d'
+      }}
+    >
+      <YStack 
+        maxWidth={900} 
+        width="100%" 
+        padding="$4"
+        backgroundColor="rgba(10, 10, 10, 0.95)" 
+        borderColor="rgba(255,255,255,0.15)"
+        borderWidth={1}
+        borderRadius="$10"
+        style={{
+          backdropFilter: 'blur(40px)',
+          boxShadow: `0 20px 50px -10px rgba(0,0,0,0.8)`
+        }}
+      >
+        <YStack padding="$8" gap="$6">
+          {/* Header */}
+          <XStack gap="$4" alignItems="center">
+            <YStack padding="$3" backgroundColor={`${story.color}20`} borderRadius="$8">
+              <story.icon color={story.color} size={32} />
+            </YStack>
+            <YStack>
+              <H3 fontSize={28} color="$color" fontWeight="500">{story.name}</H3>
+              <Text fontSize={16} color={story.color} fontFamily="$mono">{story.persona}</Text>
+            </YStack>
+            <YStack marginLeft="auto" padding="$3" paddingHorizontal="$4" backgroundColor={`${story.color}15`} borderRadius="$6" borderWidth={1} borderColor={story.color}>
+              <Text fontSize={24} color={story.color} fontWeight="700">{story.metric}</Text>
+            </YStack>
+          </XStack>
+
+          {/* Content Grid */}
+          <XStack gap="$8" $sm={{ flexDirection: 'column' }}>
+            {/* OLD WAY */}
+            <YStack flex={1} gap="$2" opacity={0.6}>
+              <Text fontSize={12} color="$color" fontFamily="$mono" textTransform="uppercase" opacity={0.7}>The Old Way</Text>
+              <Paragraph fontSize={18} color="$color" fontStyle="italic">"{story.before.problem}"</Paragraph>
+            </YStack>
+
+            {/* DIVIDER */}
+            <YStack width={1} backgroundColor="$borderColor" $sm={{ width: '100%', height: 1 }} />
+
+            {/* NEW WAY */}
+            <YStack flex={1} gap="$4">
+              <Text fontSize={12} color={story.color} fontFamily="$mono" textTransform="uppercase">With Synap Core</Text>
+              <YStack padding="$4" backgroundColor={`${story.color}10`} borderRadius="$6" borderLeftWidth={3} borderLeftColor={story.color}>
+                <XStack gap="$2" alignItems="center">
+                    <CheckCircle2 size={20} color={story.color} />
+                    <Text fontSize={22} color={story.color} fontWeight="600">{story.after.outcome}</Text>
+                </XStack>
+              </YStack>
+              <Paragraph fontSize={18} color="$color">{story.after.detail}</Paragraph>
+            </YStack>
+          </XStack>
+        </YStack>
+      </YStack>
+    </motion.div>
+  )
+}
+
 export function DeveloperStories() {
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  })
+
   return (
     <Theme name="dark">
       <YStack 
-        paddingVertical="$20" 
-        minHeight="90vh" 
-        justifyContent="center" 
-        alignItems="center"
+        ref={containerRef}
+        height="350vh" 
+        position="relative"
         backgroundColor="$background"
       >
-        <YStack maxWidth={1200} width="100%" padding="$4" gap="$12">
-          <YStack gap="$4" alignItems="center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Text 
-                fontFamily="$mono" 
-                fontSize={12} 
-                color="$primary" 
-                letterSpacing={2}
-                textTransform="uppercase"
-              >
-                For Builders
-              </Text>
-            </motion.div>
+        <YStack 
+          position="sticky" 
+          top={0} 
+          height="100vh" 
+          overflow="hidden"
+          perspective={1000}
+        >
+          <YStack maxWidth={900} width="100%" marginHorizontal="auto" height="100%" justifyContent="center">
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <H2 
-                textAlign="center" 
-                fontSize={48} 
-                fontFamily="$heading"
-                color="$color"
-                fontWeight="300"
-                letterSpacing={-1}
-              >
-                Build Features, Not Infrastructure
-              </H2>
-            </motion.div>
+            {/* Header */}
+            <YStack gap="$4" alignItems="center" position="absolute" top="8%" left={0} right={0} zIndex={50}>
+               <Text fontFamily="$mono" fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
+                  For Builders
+               </Text>
+               <H2 textAlign="center" fontSize={56} fontFamily="$heading" color="$color" fontWeight="300" letterSpacing={-1}>
+                  Build Features, Not Infrastructure
+               </H2>
+            </YStack>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Paragraph 
-                textAlign="center" 
-                fontSize={18} 
-                color="$color" 
-                opacity={0.6}
-                maxWidth={700}
-              >
-                Real developers building on sovereign infrastructure. Same problems you face. Different architecture.
-              </Paragraph>
-            </motion.div>
-          </YStack>
+            {/* 3D Card Stack */}
+            <YStack position="relative" height={500} width="100%" marginTop={80} style={{ transformStyle: 'preserve-3d' }}>
+              {stories.map((story, i) => {
+                // Ranges Logic:
+                // Card 0: Entry [-1, -1] (Always visible), Exit [0.1, 0.35]
+                // Card 1: Entry [0.1, 0.35] (Enters as 0 exits), Exit [0.35, 0.6]
+                // Card 2: Entry [0.35, 0.6], Exit [0.6, 0.85]
+                
+                const step = 0.25
+                const startOffset = 0.1
+                
+                const exitStart = startOffset + (i * step)
+                const exitEnd = exitStart + step
+                
+                // Entry matches previous card's exit
+                const entryStart = i === 0 ? -1 : exitStart - step
+                const entryEnd = i === 0 ? 0 : exitStart
+                
+                return (
+                  <StoryCard 
+                    key={story.id} 
+                    story={story} 
+                    index={i} 
+                    progress={scrollYProgress}
+                    ranges={[entryStart, entryEnd, exitStart, exitEnd]}
+                    total={stories.length}
+                  />
+                )
+              })}
+            </YStack>
 
-          <YStack gap="$8">
-            {stories.map((story, i) => (
-              <motion.div
-                key={story.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6 }}
-              >
-                <YStack
-                  padding="$8"
-                  backgroundColor="rgba(255, 255, 255, 0.03)"
-                  borderColor="$borderColor"
-                  borderWidth={1}
-                  borderRadius="$10"
-                  gap="$6"
-                  style={{
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                  }}
-                >
-                  <XStack gap="$4" alignItems="center">
-                    <YStack 
-                      padding="$3" 
-                      backgroundColor={`${story.color}20`} 
-                      borderRadius="$8"
-                    >
-                      <story.icon color={story.color} size={28} />
-                    </YStack>
-                    
-                    <YStack gap="$1">
-                      <H3 fontSize={24} color="$color" fontWeight="500">
-                        {story.name}
-                      </H3>
-                      <Text fontSize={14} color={story.color} opacity={0.9} fontFamily="$mono">
-                        {story.persona}
-                      </Text>
-                    </YStack>
-                  </XStack>
-
-                  <YStack gap="$4">
-                    <YStack gap="$2">
-                      <Text fontSize={12} color="$color" opacity={0.5} fontFamily="$mono" textTransform="uppercase" letterSpacing={1}>
-                        The Problem
-                      </Text>
-                      <Paragraph fontSize={16} color="$color" opacity={0.8} lineHeight={26} fontStyle="italic">
-                        {story.problem}
-                      </Paragraph>
-                    </YStack>
-
-                    <YStack gap="$2">
-                      <Text fontSize={12} color="$color" opacity={0.5} fontFamily="$mono" textTransform="uppercase" letterSpacing={1}>
-                        The Solution
-                      </Text>
-                      <Paragraph fontSize={16} color="$color" opacity={0.9} lineHeight={26}>
-                        {story.solution}
-                      </Paragraph>
-                    </YStack>
-
-                    <YStack 
-                      padding="$4" 
-                      backgroundColor={`${story.color}15`}
-                      borderRadius="$6"
-                      borderLeftWidth={3}
-                      borderLeftColor={story.color}
-                    >
-                      <Text fontSize={16} color={story.color} fontWeight="600" lineHeight={24}>
-                        {story.outcome}
-                      </Text>
-                    </YStack>
-                  </YStack>
-                </YStack>
-              </motion.div>
-            ))}
           </YStack>
         </YStack>
       </YStack>

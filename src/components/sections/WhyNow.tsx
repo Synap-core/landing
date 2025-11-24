@@ -9,32 +9,28 @@ const reasons = [
     id: 'ai',
     icon: Brain,
     title: 'AI Maturity',
-    description: 'LLMs can interpret natural language into structured actions',
-    details: 'What seemed impossible 3 years ago—AI understanding user intent and creating structured data—is now table stakes. Universal interfaces are finally practical.',
+    description: 'LLMs turn natural language into structured data. Universal interfaces are finally practical.',
     color: '#10B981'
   },
   {
     id: 'regulation',
     icon: Scale,
     title: 'Regulatory Pressure',
-    description: 'EU Data Act 2025 mandates data portability',
-    details: 'Vendor lock-in isn\'t just anti-competitive anymore—it\'s illegal. The law is forcing the shift we\'ve been advocating for.',
+    description: 'EU Data Act 2025 makes vendor lock-in illegal. The law is forcing the shift.',
     color: '#3B82F6'
   },
   {
     id: 'blockchain',
     icon: TrendingUp,
     title: 'Blockchain\'s Lesson',
-    description: 'Market validated demand for ownership, rejected execution',
-    details: 'Billions of dollars proved people want data sovereignty. Crypto showed us what NOT to do. We learned: ownership without complexity.',
+    description: 'People want data sovereignty. Crypto showed what NOT to do. Ownership without complexity.',
     color: '#8B5CF6'
   },
   {
     id: 'tech',
     icon: Zap,
     title: 'Technical Readiness',
-    description: 'Event sourcing + containers = deployable sovereignty',
-    details: 'Docker, event-driven architectures, and modern databases make self-hosted infrastructure as easy as SaaS deployment. The stack is ready.',
+    description: 'Event sourcing + containers make self-hosting as easy as SaaS deployment. The stack is ready.',
     color: '#F59E0B'
   }
 ]
@@ -43,7 +39,7 @@ export function WhyNow() {
   return (
     <Theme name="dark">
       <YStack 
-        paddingVertical="$20" 
+        paddingVertical="$16" 
         minHeight="80vh" 
         justifyContent="center" 
         alignItems="center"
@@ -104,48 +100,51 @@ export function WhyNow() {
             </motion.div>
           </YStack>
 
-          <YStack gap="$6">
+          <YStack gap="$6" $gtMd={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
             {reasons.map((reason, i) => (
               <motion.div
                 key={reason.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
+                style={{ flex: '1 1 45%', minWidth: 300, maxWidth: 500 }}
               >
                 <YStack
+                  height="100%"
                   padding="$6"
-                  backgroundColor="rgba(255, 255, 255, 0.03)"
-                  borderColor="$borderColor"
+                  backgroundColor="#050505"
+                  borderColor="rgba(255,255,255,0.1)"
                   borderWidth={1}
-                  borderRadius="$8"
+                  borderRadius="$10"
                   gap="$4"
                   style={{
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
+                    boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)'
+                  }}
+                  hoverStyle={{
+                    borderColor: '#10B981',
+                    transform: 'translateY(-2px)'
                   }}
                 >
                   <XStack gap="$4" alignItems="flex-start">
                     <YStack 
                       padding="$3" 
-                      backgroundColor={`${reason.color}20`} 
+                      backgroundColor="rgba(16, 185, 129, 0.1)" 
                       borderRadius="$6"
+                      borderWidth={1}
+                      borderColor="rgba(16, 185, 129, 0.2)"
                     >
-                      <reason.icon color={reason.color} size={24} />
+                      <reason.icon color="#10B981" size={24} />
                     </YStack>
                     
                     <YStack flex={1} gap="$2">
-                      <H3 fontSize={24} color="$color" fontWeight="400">
+                      <H3 fontSize={24} color="white" fontWeight="500">
                         {reason.title}
                       </H3>
                       
-                      <Text fontSize={16} color={reason.color} opacity={0.9} fontWeight="500">
+                      <Text fontSize={15} color="#a3a3a3" lineHeight={24}>
                         {reason.description}
                       </Text>
-                      
-                      <Paragraph fontSize={15} color="$color" opacity={0.7} lineHeight={24} marginTop="$2">
-                        {reason.details}
-                      </Paragraph>
                     </YStack>
                   </XStack>
                 </YStack>

@@ -26,7 +26,7 @@ export function Philosophy() {
   return (
     <Theme name="dark">
       <YStack 
-        paddingVertical="$20" 
+        paddingVertical="$24" 
         minHeight="80vh" 
         justifyContent="center" 
         alignItems="center"

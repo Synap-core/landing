@@ -1,4 +1,4 @@
-import { createTamagui } from 'tamagui'
+import { createTamagui, styled, Text } from 'tamagui'
 import { createInterFont } from '@tamagui/font-inter'
 import { shorthands } from '@tamagui/shorthands'
 import { themes, tokens } from '@tamagui/themes'
@@ -14,16 +14,6 @@ const headingFont = createInterFont({
   weight: {
     6: '400',
     7: '700',
-  },
-  color: {
-    6: '$colorFocus',
-    7: '$color',
-  },
-  letterSpacing: {
-    5: 2,
-    6: 1,
-    7: 0,
-    8: -1,
   },
   face: {
     700: { normal: 'InterBold' },
@@ -66,8 +56,9 @@ const animations = createAnimations({
 
 export const config = createTamagui({
   animations,
-  shouldAddPrefersColorThemes: true,
-  themeClassNameOnRoot: true,
+  defaultTheme: 'dark',
+  shouldAddPrefersColorThemes: false,
+  themeClassNameOnRoot: false,
   shorthands,
   fonts: {
     heading: headingFont,
