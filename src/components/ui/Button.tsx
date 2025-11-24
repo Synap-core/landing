@@ -1,6 +1,6 @@
 'use client'
 
-import { Button as TButton, styled } from 'tamagui'
+import { Button as TButton, styled, GetProps } from 'tamagui'
 
 export const Button = styled(TButton, {
   borderRadius: 8,
@@ -42,4 +42,6 @@ export const Button = styled(TButton, {
   defaultVariants: {
     variant: 'primary',
   },
-})
+} as const)
+
+export type ButtonProps = GetProps<typeof Button>
