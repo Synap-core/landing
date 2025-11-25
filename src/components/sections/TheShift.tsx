@@ -83,12 +83,12 @@ export function TheShift() {
         backgroundColor="$background"
       >
         <YStack 
-          position="sticky" 
+          style={{ position: 'sticky' }}
           top={0} 
           height="100vh" 
           justifyContent="center" 
           alignItems="center"
-          overflow="hidden"
+          zIndex={5}
         >
           <YStack maxWidth={1200} width="100%" padding="$4" gap="$8">
             
