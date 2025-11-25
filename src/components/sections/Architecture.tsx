@@ -139,13 +139,20 @@ export function Architecture() {
           {/* Header */}
           <motion.div style={{ y: yMid }}>
             <YStack gap="$4" alignItems="center">
-              <Text  fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
-                System Architecture
-              </Text>
-              <H2 textAlign="center" fontSize={48} fontFamily="$heading" color="$color" fontWeight="300" letterSpacing={-1}>
-                Built for Longevity
-              </H2>
-              <Paragraph textAlign="center" fontSize={16} color="$color" opacity={0.6} maxWidth={600}>
+            <Text fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
+              The Stack
+            </Text>
+            <H2 
+              textAlign="center" 
+              fontSize={48} 
+              $sm={{ fontSize: 32 }}
+              fontFamily="$heading" 
+              color="$color" 
+              fontWeight="600"
+            >
+              Built on Battle-Tested Tech
+            </H2>
+            <Paragraph textAlign="center" fontSize={16} color="$color" opacity={0.6} maxWidth={600}>
                 A system built on immutable facts, not mutable state.
               </Paragraph>
             </YStack>
