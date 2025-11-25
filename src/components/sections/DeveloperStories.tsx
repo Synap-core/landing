@@ -206,7 +206,7 @@ export function DeveloperStories() {
         backgroundColor="$background"
       >
         <YStack 
-          position="sticky" 
+          style={{ position: 'sticky' }}
           top={0} 
           height="100vh" 
           overflow="hidden"
