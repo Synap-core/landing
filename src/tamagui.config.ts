@@ -5,24 +5,65 @@ import { themes, tokens } from '@tamagui/themes'
 
 const headingFont = createInterFont({
   size: {
-    6: 15,
+    1: 12,   // Rarely used
+    2: 14,   // Labels  
+    3: 16,   // Small headings
+    4: 20,   // H6
+    5: 24,   // H5
+    6: 28,   // H4 / H3 mobile
+    7: 32,   // H3 desktop small
+    8: 40,   // H3 desktop / H2 mobile
+    9: 48,   // H2 desktop medium
+    10: 56,  // H2 desktop large
+    11: 64,  // H1 mobile
+    12: 72,  // H1 desktop
   },
   transform: {
     6: 'uppercase',
     7: 'none',
   },
   weight: {
-    6: '400',
-    7: '700',
+    4: '300',
+    5: '400',
+    6: '500',
+    7: '600',
+    8: '700',
   },
   face: {
+    300: { normal: 'Inter' },
+    400: { normal: 'Inter' },
+    500: { normal: 'Inter' },
+    600: { normal: 'Inter' },
     700: { normal: 'InterBold' },
+  },
+  letterSpacing: {
+    4: 0,
+    5: -0.5,
+    6: -0.5,
+    7: -1,
+    8: -1,
+    9: -1.5,
+    10: -1.5,
+    11: -2,
+    12: -2,
   },
 })
 
 const bodyFont = createInterFont(
   {
+    size: {
+      1: 12,   // Caption / small text
+      2: 14,   // Small body
+      3: 16,   // Body default
+      4: 18,   // Large body
+      5: 20,   // XL body
+      6: 24,   // Display text
+    },
     face: {
+      300: { normal: 'Inter' },
+      400: { normal: 'Inter' },
+      500: { normal: 'Inter' },
+      600: { normal: 'Inter' },
       700: { normal: 'InterBold' },
     },
   },
@@ -32,11 +73,18 @@ const bodyFont = createInterFont(
   }
 )
 
-
-// Add monospace font for code/technical text (small labels, code snippets)
+// Monospace font for code/technical text
 const monoFont = createInterFont(
   {
     family: "'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace",
+    size: {
+      1: 11,   // Very small code
+      2: 12,   // Small code
+      3: 13,   // Code default
+      4: 14,   // Medium code
+      5: 15,   // Large code  
+      6: 16,   // XL code
+    },
     face: {
       400: { normal: "'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace" },
       700: { normal: "'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace" },
