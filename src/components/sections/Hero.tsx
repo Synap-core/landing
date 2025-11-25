@@ -34,19 +34,33 @@ export function Hero() {
         gap="$8" 
         alignItems="center" 
       >
-        {/* GitHub Badge */}
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] } as any}
         >
-            <XStack gap="$2" alignItems="center" justifyContent="center" marginBottom="$6">
-                <SectionLabel size="$1">
+            <XStack 
+                gap="$2" 
+                alignItems="center" 
+                justifyContent="center" 
+                paddingHorizontal="$3"
+                paddingVertical="$2"
+                backgroundColor="rgba(255, 255, 255, 0.05)"
+                borderRadius="$10"
+                borderWidth={1}
+                borderColor="rgba(255, 255, 255, 0.1)"
+                style={{
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)'
+                }}
+                marginBottom="$6"
+            >
+                <SectionLabel size="$1" opacity={0.8}>
                     Open Source
                 </SectionLabel>
                 <YStack width={1} height={12} backgroundColor="rgba(255, 255, 255, 0.2)" />
                 <Star size={14} color="#F59E0B" fill="#F59E0B" />
-                <SectionLabel size="$1" fontWeight="600">
+                <SectionLabel size="$1" fontWeight="600" opacity={0.8}>
                     2.3k
                 </SectionLabel>
             </XStack>

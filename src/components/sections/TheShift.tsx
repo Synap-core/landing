@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
 import { Lock, Unlock, DollarSign, Zap, Database, Shield, Globe, Server, Sun, Sprout } from 'lucide-react'
 import { useRef, useState, useEffect } from 'react'
 import * as React from 'react'
+import { SectionLabel, SectionHeadingLarge } from '@/components/ui/Typography'
 
 // --- Text Scramble Component (Inline for tight integration) ---
 const CHARS = 'abcdefghijklmnopqrstuvwxyz'
@@ -38,7 +39,7 @@ function ScrambleText({ text, active }: { text: string, active: boolean }) {
     return () => clearInterval(interval)
   }, [active, text])
 
-  return <Text >{display}</Text>
+  return <Text fontFamily="$mono">{display}</Text>
 }
 
 // --- Data ---
@@ -82,7 +83,7 @@ export function TheShift() {
         backgroundColor="$background"
       >
         <YStack 
-          style={{ position: 'sticky' }}
+          position="sticky" 
           top={0} 
           height="100vh" 
           justifyContent="center" 
@@ -93,12 +94,12 @@ export function TheShift() {
             
             {/* Header */}
             <YStack gap="$4" alignItems="center" marginBottom="$8">
-               <Text  fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
+               <SectionLabel>
                   Evolution
-               </Text>
-               <H2 textAlign="center" fontSize={64} fontFamily="$heading" color="$color" fontWeight="300" letterSpacing={-1} lineHeight={72}>
+               </SectionLabel>
+               <SectionHeadingLarge textAlign="center">
                   The Reality Rewrite
-               </H2>
+               </SectionHeadingLarge>
             </YStack>
 
             {/* THE COMPONENT */}
@@ -143,7 +144,7 @@ export function TheShift() {
                   ))}
                 </YStack>
                 
-                <Text  color="#525252" fontSize={12}>STATUS: RESTRICTED</Text>
+                <Text fontFamily="$mono" color="#525252" fontSize={12}>STATUS: RESTRICTED</Text>
               </YStack>
 
               {/* LAYER 2: THE LIVING PRISM (Sovereign Future) - EMERALD THEMED */}
@@ -230,7 +231,7 @@ export function TheShift() {
                 <XStack gap="$4" alignItems="center" justifyContent="space-between">
                   <XStack alignItems="center" gap="$2">
                       <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 10px #10B981' }} />
-                      <Text  color="#10B981" fontSize={12}>STATUS: SOVEREIGN</Text>
+                      <Text fontFamily="$mono" color="#10B981" fontSize={12}>STATUS: SOVEREIGN</Text>
                   </XStack>
                   
                   <a 
