@@ -23,7 +23,7 @@ export const PageTitle = styled(H1, {
         textAlign: 'center',
       },
     },
-  },
+  } as const,
 })
 
 // Section heading - Major section titles
@@ -38,14 +38,6 @@ export const SectionHeading = styled(H2, {
   $gtSm: {
     size: '$10',            // 56px desktop
     lineHeight: 64,
-  },
-  
-  variants: {
-    centered: {
-      true: {
-        textAlign: 'center',
-      },
-    },
   },
 })
 
