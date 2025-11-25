@@ -227,7 +227,8 @@ export function Ecosystem() {
           <XStack gap="$4" justifyContent="center" flexWrap="wrap">
             <Link href="/developers" style={{ textDecoration: 'none' }}>
               <Button
-                size="$5"
+                size="$4"
+                fontSize={16}
                 backgroundColor="$primary"
                 color="#000"
                 borderRadius="$10"
@@ -241,7 +242,8 @@ export function Ecosystem() {
 
             <Link href="/developers#plugins" style={{ textDecoration: 'none' }}>
               <Button
-                size="$5"
+                size="$4"
+                fontSize={16}
                 backgroundColor="transparent"
                 borderWidth={2}
                 borderColor="rgba(255,255,255,0.2)"
