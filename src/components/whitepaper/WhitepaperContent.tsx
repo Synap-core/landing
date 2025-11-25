@@ -21,80 +21,78 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          h1: ({ node, ...props }) => (
+          h1: ({ node, dangerouslySetInnerHTML, ...props }) => (
             <H1 
               color="#fff" 
               fontSize={48} 
               fontWeight="800" 
-              letterSpacing={-2} 
-              marginTop="$8"
-              marginBottom="$4"
+              marginTop="$8" 
+              marginBottom="$6"
               lineHeight={56}
-              {...props} 
+              {...(props as any)}
             />
           ),
-          h2: ({ node, ...props }) => (
+          h2: ({ node, dangerouslySetInnerHTML, ...props }) => (
             <H2 
               color="#fff" 
               fontSize={36} 
               fontWeight="700" 
-              marginTop="$8"
-              marginBottom="$4"
+              marginTop="$8" 
+              marginBottom="$5"
               lineHeight={44}
-              {...props} 
+              {...(props as any)}
             />
           ),
-          h3: ({ node, ...props }) => (
+          h3: ({ node, dangerouslySetInnerHTML, ...props }) => (
             <H3 
-              color="#10B981" 
+              color="#fff" 
               fontSize={24} 
               fontWeight="600" 
-              marginTop="$6"
-              marginBottom="$3"
-              {...props} 
-            />
-          ),
-          p: ({ node, ...props }) => (
-            <Paragraph 
-              color="rgba(255,255,255,0.8)" 
-              fontSize={16} 
-              lineHeight={28}
+              marginTop="$6" 
               marginBottom="$4"
-              {...props} 
+              lineHeight={32}
+              {...(props as any)}
             />
           ),
-          ul: ({ node, ...props }) => (
-            <ul 
-              style={{ 
-                color: 'rgba(255,255,255,0.8)', 
-                marginLeft: 24,
-                marginBottom: 16,
-                lineHeight: 1.8
-              }} 
-              {...props} 
+          p: ({ node, dangerouslySetInnerHTML, ...props }) => (
+            <Paragraph 
+              color="rgba(255,255,255,0.85)" 
+              fontSize={17} 
+              lineHeight={28} 
+              marginBottom="$4"
+              {...(props as any)}
             />
           ),
-          ol: ({ node, ...props }) => (
-            <ol 
-              style={{ 
-                color: 'rgba(255,255,255,0.8)', 
-                marginLeft: 24,
-                marginBottom: 16,
-                lineHeight: 1.8
-              }} 
-              {...props} 
+          ul: ({ node, dangerouslySetInnerHTML, ...props }) => (
+            <ul
+              style={{
+                paddingLeft: 24,
+                marginBottom: 20,
+                color: 'rgba(255,255,255,0.85)',
+              }}
+              {...props}
             />
           ),
-          li: ({ node, ...props }) => (
-            <li 
-              style={{ 
-                color: 'rgba(255,255,255,0.8)', 
-                marginBottom: 8 
-              }} 
-              {...props} 
+          ol: ({ node, dangerouslySetInnerHTML, ...props }) => (
+            <ol
+              style={{
+                paddingLeft: 24,
+                marginBottom: 20,
+                color: 'rgba(255,255,255,0.85)',
+              }}
+              {...props}
             />
           ),
-          code({ node, inline, className, children, ...props }: any) {
+          li: ({ node, dangerouslySetInnerHTML, ...props }) => (
+            <li
+              style={{
+                marginBottom: 8,
+                lineHeight: 1.7,
+              }}
+              {...props}
+            />
+          ),
+          code: ({ node, inline, className, children, dangerouslySetInnerHTML, ...props }: any) => {
             const match = /language-(\w+)/.exec(className || '')
             return !inline && match ? (
               <div style={{ marginBottom: 24, borderRadius: 8, overflow: 'hidden' }}>
