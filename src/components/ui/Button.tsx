@@ -7,19 +7,15 @@ export const Button = styled(Stack, {
   name: 'CustomButton',
   tag: 'button',
   
-  // Base styles
+  // Base styles (NO text properties - Stack doesn't support them)
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: 8,
-  fontWeight: '600',
   paddingHorizontal: 24,
   paddingVertical: 12,
   cursor: 'pointer',
   borderWidth: 0,
-  fontFamily: '$body',
-  fontSize: 16,
-  textDecoration: 'none',
   
   variants: {
     variant: {
@@ -54,7 +50,6 @@ export const Button = styled(Stack, {
       '$5': {
         paddingHorizontal: 32,
         paddingVertical: 16,
-        fontSize: 18,
       }
     }
   } as const,
