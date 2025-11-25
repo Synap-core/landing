@@ -4,6 +4,10 @@ import { motion } from 'framer-motion'
 import { YStack, XStack, H2, H3, Paragraph, Text, Button } from 'tamagui'
 import { FileText, Briefcase, Code2, Bot, Search, Mail, Clock, Brain, CheckSquare } from 'lucide-react'
 import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 const categories = [
   {
@@ -177,10 +181,12 @@ export function Ecosystem() {
               </Paragraph>
             </YStack>
 
+            {/* Desktop: Grid */}
             <XStack
               gap="$4"
               flexWrap="wrap"
               justifyContent="center"
+              $sm={{ display: 'none' }}
             >
               {plugins.map((plugin, i) => (
                 <motion.div
@@ -215,6 +221,60 @@ export function Ecosystem() {
                 </motion.div>
               ))}
             </XStack>
+
+            {/* Mobile: Horizontal Slider */}
+            <YStack
+              display="none"
+              $sm={{ display: 'flex' }}
+              width="100%"
+            >
+              <style jsx global>{`
+                .plugin-swiper .swiper-pagination-bullet {
+                  background: rgba(255, 255, 255, 0.5);
+                  opacity: 1;
+                }
+                .plugin-swiper .swiper-pagination-bullet-active {
+                  background: #10B981;
+                }
+              `}</style>
+              
+              <Swiper
+                modules={[Pagination]}
+                slidesPerView={1.2}
+                spaceBetween={16}
+                centeredSlides={false}
+                pagination={{ clickable: true }}
+                breakpoints={{
+                  480: {
+                    slidesPerView: 2,
+                  }
+                }}
+                className="plugin-swiper"
+                style={{ width: '100%', paddingBottom: '32px' }}
+              >
+                {plugins.map((plugin) => (
+                  <SwiperSlide key={plugin.name}>
+                    <YStack
+                      padding="$4"
+                      paddingHorizontal="$6"
+                      backgroundColor="rgba(255,255,255,0.03)"
+                      borderRadius="$10"
+                      borderWidth={1}
+                      borderColor="rgba(255,255,255,0.08)"
+                      gap="$3"
+                      alignItems="center"
+                      minWidth={160}
+                      margin="auto"
+                    >
+                      <plugin.icon size={32} color={plugin.color} />
+                      <Text fontSize={14} fontWeight="500" color="#fff">
+                        {plugin.name}
+                      </Text>
+                    </YStack>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </YStack>
           </YStack>
         </motion.div>
 

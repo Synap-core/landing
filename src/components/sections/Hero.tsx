@@ -5,7 +5,7 @@ import { YStack, XStack, Text, Button as TButton } from 'tamagui'
 import { Button } from '@/components/ui/Button'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
-import { Terminal, Star } from 'lucide-react'
+import { Terminal, Star, Github } from 'lucide-react'
 import { PageTitle, SectionLabel, BodyTextLarge } from '@/components/ui/Typography'
 import Link from 'next/link'
 
@@ -55,14 +55,16 @@ export function Hero() {
                 }}
                 marginBottom="$6"
             >
+              {/* <Github size={16} color="#10B981" /> */}
                 <SectionLabel size="$1" opacity={0.8}>
                     Open Source
                 </SectionLabel>
-                <YStack width={1} height={12} backgroundColor="rgba(255, 255, 255, 0.2)" />
+                {/* todo: put when we really have stars, connected to github */}
+                {/* <YStack width={1} height={12} backgroundColor="rgba(255, 255, 255, 0.2)" />
                 <Star size={14} color="#F59E0B" fill="#F59E0B" />
                 <SectionLabel size="$1" fontWeight="600" opacity={0.8}>
                     2.3k
-                </SectionLabel>
+                </SectionLabel> */}
             </XStack>
         </motion.div>
 
