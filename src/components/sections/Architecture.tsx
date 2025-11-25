@@ -139,7 +139,7 @@ export function Architecture() {
           {/* Header */}
           <motion.div style={{ y: yMid }}>
             <YStack gap="$4" alignItems="center">
-              <Text fontFamily="$mono" fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
+              <Text  fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
                 System Architecture
               </Text>
               <H2 textAlign="center" fontSize={48} fontFamily="$heading" color="$color" fontWeight="300" letterSpacing={-1}>
@@ -177,11 +177,11 @@ export function Architecture() {
                   <YStack marginTop="auto" gap="$3">
                      <XStack gap="$2" alignItems="center">
                         <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981' }} />
-                        <Text fontSize={12} fontFamily="$mono" opacity={0.8}>Source of Truth</Text>
+                        <Text fontSize={12}  opacity={0.8}>Source of Truth</Text>
                      </XStack>
                      <XStack gap="$2" alignItems="center">
                         <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981' }} />
-                        <Text fontSize={12} fontFamily="$mono" opacity={0.8}>Time Travel</Text>
+                        <Text fontSize={12}  opacity={0.8}>Time Travel</Text>
                      </XStack>
                   </YStack>
                 </BentoCard>

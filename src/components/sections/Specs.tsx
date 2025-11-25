@@ -116,7 +116,7 @@ export function Specs() {
                             {spec.content.map((item, j) => (
                                 <XStack key={j} gap="$3" alignItems="center">
                                     <YStack width={4} height={4} borderRadius={2} backgroundColor="$primary" opacity={0.5} />
-                                    <Text fontFamily="$mono" fontSize={14} color="$color" opacity={0.8}>
+                                    <Text  fontSize={14} color="$color" opacity={0.8}>
                                         {item}
                                     </Text>
                                 </XStack>

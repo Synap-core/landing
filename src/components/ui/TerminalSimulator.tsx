@@ -98,7 +98,7 @@ export function TerminalSimulator() {
                   '#6B7280'
                 }
                 lineHeight={20}
-                fontFamily="$mono"
+                
               >
                 {line.content}
               </Text>
@@ -110,7 +110,7 @@ export function TerminalSimulator() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              <Text fontSize={13} color="#10B981" lineHeight={20} fontFamily="$mono">
+              <Text fontSize={13} color="#10B981" lineHeight={20} >
                 {currentTyping}
                 <motion.span
                   animate={{ opacity: [1, 0] }}

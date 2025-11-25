@@ -38,7 +38,7 @@ function ScrambleText({ text, active }: { text: string, active: boolean }) {
     return () => clearInterval(interval)
   }, [active, text])
 
-  return <Text fontFamily="$mono">{display}</Text>
+  return <Text >{display}</Text>
 }
 
 // --- Data ---
@@ -82,7 +82,7 @@ export function TheShift() {
         backgroundColor="$background"
       >
         <YStack 
-          position="sticky" 
+          style={{ position: 'sticky' }}
           top={0} 
           height="100vh" 
           justifyContent="center" 
@@ -93,7 +93,7 @@ export function TheShift() {
             
             {/* Header */}
             <YStack gap="$4" alignItems="center" marginBottom="$8">
-               <Text fontFamily="$mono" fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
+               <Text  fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase">
                   Evolution
                </Text>
                <H2 textAlign="center" fontSize={64} fontFamily="$heading" color="$color" fontWeight="300" letterSpacing={-1} lineHeight={72}>
@@ -143,7 +143,7 @@ export function TheShift() {
                   ))}
                 </YStack>
                 
-                <Text fontFamily="$mono" color="#525252" fontSize={12}>STATUS: RESTRICTED</Text>
+                <Text  color="#525252" fontSize={12}>STATUS: RESTRICTED</Text>
               </YStack>
 
               {/* LAYER 2: THE LIVING PRISM (Sovereign Future) - EMERALD THEMED */}
@@ -230,7 +230,7 @@ export function TheShift() {
                 <XStack gap="$4" alignItems="center" justifyContent="space-between">
                   <XStack alignItems="center" gap="$2">
                       <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 10px #10B981' }} />
-                      <Text fontFamily="$mono" color="#10B981" fontSize={12}>STATUS: SOVEREIGN</Text>
+                      <Text  color="#10B981" fontSize={12}>STATUS: SOVEREIGN</Text>
                   </XStack>
                   
                   <a 

@@ -52,7 +52,7 @@ export function Hero() {
                 }}
             >
                 <Github size={16} color="#10B981" />
-                <Text fontSize={12} color="$color" opacity={0.8} fontFamily="$mono">
+                <Text fontSize={12} color="$color" opacity={0.8} >
                     Open Source
                 </Text>
                 <YStack width={1} height={12} backgroundColor="rgba(255, 255, 255, 0.2)" />
@@ -178,7 +178,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.9 }}
         >
             <Text 
-                fontFamily="$mono" 
+                 
                 fontSize={11} 
                 color="$color" 
                 opacity={0.4}

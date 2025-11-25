@@ -30,7 +30,7 @@ export function Community() {
               transition={{ duration: 0.6 }}
             >
               <Text 
-                fontFamily="$mono" 
+                 
                 fontSize={12} 
                 color="$primary" 
                 letterSpacing={2}
@@ -115,7 +115,7 @@ export function Community() {
                       opacity={0.6}
                       textTransform="uppercase"
                       letterSpacing={1}
-                      fontFamily="$mono"
+                      
                     >
                       {stat.label}
                     </Text>

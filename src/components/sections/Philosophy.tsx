@@ -41,7 +41,7 @@ export function Philosophy() {
               transition={{ duration: 0.6 }}
             >
               <Text 
-                fontFamily="$mono" 
+                 
                 fontSize={12} 
                 color="$primary" 
                 letterSpacing={2}
@@ -129,7 +129,7 @@ export function Philosophy() {
                 Deploy your first data pod. Build an app. Join the community. The infrastructure is ready. The timing is perfect.
               </Paragraph>
               <Text 
-                fontFamily="$mono" 
+                 
                 fontSize={13} 
                 color="$primary" 
                 opacity={0.7}

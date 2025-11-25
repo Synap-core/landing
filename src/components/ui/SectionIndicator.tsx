@@ -66,7 +66,7 @@ export function SectionIndicator() {
               WebkitBackdropFilter: 'blur(10px)'
             }}
           >
-            <Text fontFamily="$mono" fontSize={11} color="$primary" opacity={0.9}>
+            <Text  fontSize={11} color="$primary" opacity={0.9}>
               [{currentSection + 1}/{sections.length}] {sections[currentSection]}
             </Text>
           </YStack>

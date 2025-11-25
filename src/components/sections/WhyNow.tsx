@@ -54,7 +54,7 @@ export function WhyNow() {
               transition={{ duration: 0.6 }}
             >
               <Text 
-                fontFamily="$mono" 
+                 
                 fontSize={12} 
                 color="$primary" 
                 letterSpacing={2}

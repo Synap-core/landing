@@ -50,7 +50,7 @@ export function Ecosystem() {
             viewport={{ once: true }}
           >
             <Text
-              fontFamily="$mono"
+              
               fontSize={12}
               color="$primary"
               letterSpacing={2}

@@ -32,13 +32,14 @@ const bodyFont = createInterFont(
   }
 )
 
-// Add monospace font for code/technical text
+
+// Add monospace font for code/technical text (small labels, code snippets)
 const monoFont = createInterFont(
   {
-    family: 'monospace',
+    family: "'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace",
     face: {
-      400: { normal: 'monospace' },
-      700: { normal: 'monospace' },
+      400: { normal: "'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace" },
+      700: { normal: "'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace" },
     },
   },
   {
@@ -46,6 +47,7 @@ const monoFont = createInterFont(
     sizeLineHeight: (size) => Math.round(size * 1.5),
   }
 )
+
 
 import { createAnimations } from '@tamagui/animations-react-native'
 

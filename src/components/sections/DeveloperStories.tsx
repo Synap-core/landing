@@ -154,7 +154,7 @@ function StoryCard({ story, index, progress, ranges, total }: { story: typeof st
             </YStack>
             <YStack>
               <H3 fontSize={28} color="$color" fontWeight="500">{story.name}</H3>
-              <Text fontSize={16} color={story.color} fontFamily="$mono">{story.persona}</Text>
+              <Text fontSize={16} color={story.color} >{story.persona}</Text>
             </YStack>
             <YStack marginLeft="auto" padding="$3" paddingHorizontal="$4" backgroundColor={`${story.color}15`} borderRadius="$6" borderWidth={1} borderColor={story.color}>
               <Text fontSize={24} color={story.color} fontWeight="700">{story.metric}</Text>
@@ -165,7 +165,7 @@ function StoryCard({ story, index, progress, ranges, total }: { story: typeof st
           <XStack gap="$8" $sm={{ flexDirection: 'column' }}>
             {/* OLD WAY */}
             <YStack flex={1} gap="$2" opacity={0.6}>
-              <Text fontSize={12} color="$color" fontFamily="$mono" textTransform="uppercase" opacity={0.7}>The Old Way</Text>
+              <Text fontSize={12} color="$color"  textTransform="uppercase" opacity={0.7}>The Old Way</Text>
               <Paragraph fontSize={18} color="$color" fontStyle="italic">&ldquo;{story.before.problem}&rdquo;</Paragraph>
             </YStack>
 
@@ -174,7 +174,7 @@ function StoryCard({ story, index, progress, ranges, total }: { story: typeof st
 
             {/* NEW WAY */}
             <YStack flex={1} gap="$4">
-              <Text fontSize={12} color={story.color} fontFamily="$mono" textTransform="uppercase">With Synap Core</Text>
+              <Text fontSize={12} color={story.color}  textTransform="uppercase">With Synap Core</Text>
               <YStack padding="$4" backgroundColor={`${story.color}10`} borderRadius="$6" borderLeftWidth={3} borderLeftColor={story.color}>
                 <XStack gap="$2" alignItems="center">
                     <CheckCircle2 size={20} color={story.color} />
@@ -216,7 +216,7 @@ export function DeveloperStories() {
             
             {/* Header */}
             <YStack gap="$3" alignItems="center" position="absolute" top="8%" left={0} right={0} zIndex={50}>
-               <Text fontFamily="$mono" fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase" opacity={0.6}>
+               <Text  fontSize={12} color="$primary" letterSpacing={2} textTransform="uppercase" opacity={0.6}>
                   Hypothetical Scenarios
                </Text>
                <H2 textAlign="center" fontSize={56} fontFamily="$heading" color="$color" fontWeight="300" letterSpacing={-1}>
