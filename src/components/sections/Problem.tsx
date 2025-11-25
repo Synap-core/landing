@@ -69,9 +69,10 @@ export function Problem() {
               <H2 
                 textAlign="center" 
                 fontSize={48} 
+                $sm={{ fontSize: 32 }}
                 fontFamily="$heading"
-                color="$color"
-                fontWeight="300"
+                color="white"
+                fontWeight="600"
                 letterSpacing={-1}
               >
                 A Fundamental Decision

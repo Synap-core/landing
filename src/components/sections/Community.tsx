@@ -49,9 +49,10 @@ export function Community() {
               <H2 
                 textAlign="center" 
                 fontSize={48} 
+                $sm={{ fontSize: 32 }}
                 fontFamily="$heading"
                 color="$color"
-                fontWeight="300"
+                fontWeight="600"
                 letterSpacing={-1}
               >
                 {showBuildingMessage ? 'Building the Sovereign Web Together' : 'Join the Movement'}

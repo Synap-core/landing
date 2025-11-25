@@ -60,6 +60,7 @@ export function Philosophy() {
               <H2 
                 textAlign="center" 
                 fontSize={48} 
+                $sm={{ fontSize: 32, lineHeight: 40 }}
                 fontFamily="$heading"
                 color="$color"
                 fontWeight="300"
