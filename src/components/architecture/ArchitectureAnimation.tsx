@@ -1,176 +1,331 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { YStack } from 'tamagui'
-import { Database, Cpu, Cloud, HardDrive, Zap, Server, Bot, Globe } from 'lucide-react'
+import { Database, Cpu, HardDrive, Bot, Globe } from 'lucide-react'
 import { ComponentNode } from './ComponentNode'
-import { Controls } from './Controls'
 import { ComponentPosition } from './types'
+import { motion } from 'framer-motion'
 
-// Component positions (percentage-based for responsiveness)
-const POSITIONS: Record<string, ComponentPosition> = {
-  ui: { x: 20, y: 15 },
-  agent: { x: 70, y: 15 },
-  api: { x: 45, y: 30 },
-  eventStore: { x: 45, y: 50 },
-  inngest: { x: 65, y: 50 },
-  workers: { x: 45, y: 70 },
-  database: { x: 25, y: 85 },
-  storage: { x: 65, y: 85 },
+// DESKTOP LAYOUT: Left to Right
+const DESKTOP_POSITIONS: Record<string, ComponentPosition> = {
+  // LEFT: Inputs (Symmetric spacing)
+  ui: { x: 15, y: 30 },
+  agent: { x: 15, y: 70 },
+  
+  // CENTER: Event Store (Perfect Center)
+  eventStore: { x: 50, y: 50 },
+  
+  // CENTER-RIGHT: Processing
+  workers: { x: 70, y: 50 },
+  
+  // RIGHT: Storage Layer (Symmetric spacing)
+  database: { x: 85, y: 30 },
+  storage: { x: 85, y: 70 },
 }
 
-// Animation sequence timing (in seconds)
-const ANIMATION_STEPS = [
-  { time: 0, activeNodes: ['ui'], description: 'User types in UI' },
-  { time: 0.5, activeNodes: ['ui', 'api'], description: 'API call' },
-  { time: 1, activeNodes: ['api'], description: 'Event created' },
-  { time: 1.5, activeNodes: ['api', 'eventStore'], description: 'Event stored' },
-  { time: 2, activeNodes: ['eventStore', 'inngest'], description: 'Inngest triggered' },
-  { time: 2.5, activeNodes: ['inngest', 'workers'], description: 'Worker dispatched' },
-  { time: 3, activeNodes: ['workers'], description: 'Processing' },
-  { time: 3.5, activeNodes: ['workers', 'storage'], description: 'Upload to storage' },
-  { time: 4, activeNodes: ['workers', 'database'], description: 'Save to database' },
-  { time: 4.5, activeNodes: ['eventStore'], description: 'Completion event' },
-  { time: 5, activeNodes: ['ui'], description: 'Real-time notification' },
+// MOBILE LAYOUT: Vertical Flow
+const MOBILE_POSITIONS: Record<string, ComponentPosition> = {
+  // TOP: Inputs (Side by side)
+  ui: { x: 25, y: 15 },
+  agent: { x: 75, y: 15 },
+  
+  // CENTER-TOP: Event Store
+  eventStore: { x: 50, y: 45 },
+  
+  // CENTER-BOTTOM: Processing
+  workers: { x: 50, y: 70 },
+  
+  // BOTTOM: Storage (Side by side)
+  database: { x: 25, y: 90 },
+  storage: { x: 75, y: 90 },
+}
+
+// Connections
+const CONNECTIONS = [
+  { from: 'ui', to: 'eventStore', color: '#10B981' },
+  { from: 'agent', to: 'eventStore', color: '#F59E0B' },
+  { from: 'eventStore', to: 'workers', color: '#10B981' },
+  { from: 'workers', to: 'database', color: '#10B981' },
+  { from: 'workers', to: 'storage', color: '#10B981' },
 ]
 
-const TOTAL_DURATION = 6000 // 6 seconds (5s animation + 1s pause)
+// Flowing particle component
+function FlowingParticle({
+  fromX,
+  fromY,
+  toX,
+  toY,
+  color,
+  delay,
+}: {
+  fromX: number
+  fromY: number
+  toX: number
+  toY: number
+  color: string
+  delay: number
+}) {
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        width: 8,
+        height: 8,
+        borderRadius: '50%',
+        background: color,
+        boxShadow: `0 0 12px ${color}`,
+        left: 0,
+        top: 0,
+      }}
+      initial={{ x: fromX - 4, y: fromY - 4, opacity: 0 }}
+      animate={{
+        x: toX - 4,
+        y: toY - 4,
+        opacity: [0, 1, 1, 0],
+      }}
+      transition={{
+        duration: 3,
+        delay,
+        repeat: Infinity,
+        ease: 'linear',
+      }}
+    />
+  )
+}
 
 export function ArchitectureAnimation() {
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [currentFlow, setCurrentFlow] = useState<'simple' | 'complex'>('simple')
-  const [activeNodes, setActiveNodes] = useState<string[]>([])
-  const [currentStep, setCurrentStep] = useState(0)
+  // Refs for each node
+  const uiRef = useRef<HTMLDivElement>(null)
+  const agentRef = useRef<HTMLDivElement>(null)
+  const eventStoreRef = useRef<HTMLDivElement>(null)
+  const workersRef = useRef<HTMLDivElement>(null)
+  const databaseRef = useRef<HTMLDivElement>(null)
+  const storageRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  // Animation loop
+  // State
+  const [nodePositions, setNodePositions] = useState<Record<string, { x: number; y: number }>>({})
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Determine active positions based on layout
+  const activePositions = isMobile ? MOBILE_POSITIONS : DESKTOP_POSITIONS
+
+  // Calculate positions after mount and on resize
   useEffect(() => {
-    if (!isPlaying) return
+    const calculatePositions = () => {
+      const container = containerRef.current
+      if (!container) return
 
-    const interval = setInterval(() => {
-      setCurrentStep((prev) => {
-        const nextStep = (prev + 100) % TOTAL_DURATION
-        const currentTime = nextStep / 1000
+      const containerRect = container.getBoundingClientRect()
+      
+      // Update mobile state based on container width
+      // Using 768px as breakpoint
+      const mobile = containerRect.width < 768
+      setIsMobile(mobile)
 
-        // Find which nodes should be active at this time
-        const activeStep = ANIMATION_STEPS.reduce((acc, step, index) => {
-          if (currentTime >= step.time) {
-            return index
+      const refs = {
+        ui: uiRef,
+        agent: agentRef,
+        eventStore: eventStoreRef,
+        workers: workersRef,
+        database: databaseRef,
+        storage: storageRef,
+      }
+
+      const newPositions: Record<string, { x: number; y: number }> = {}
+
+      Object.entries(refs).forEach(([key, ref]) => {
+        if (ref.current) {
+          const rect = ref.current.getBoundingClientRect()
+          // Calculate center relative to container
+          newPositions[key] = {
+            x: rect.left + rect.width / 2 - containerRect.left,
+            y: rect.top + rect.height / 2 - containerRect.top,
           }
-          return acc
-        }, 0)
-
-        setActiveNodes(ANIMATION_STEPS[activeStep]?.activeNodes || [])
-        return nextStep
+        }
       })
-    }, 100)
 
-    return () => clearInterval(interval)
-  }, [isPlaying])
+      setNodePositions(newPositions)
+    }
 
-  const handleReset = () => {
-    setCurrentStep(0)
-    setActiveNodes([])
-    setIsPlaying(true)
-  }
+    // Calculate on mount
+    calculatePositions()
+
+    // Recalculate on resize
+    window.addEventListener('resize', calculatePositions)
+    
+    // Small delay to ensure nodes are rendered and settled
+    const timeout = setTimeout(calculatePositions, 100)
+
+    return () => {
+      window.removeEventListener('resize', calculatePositions)
+      clearTimeout(timeout)
+    }
+  }, [isMobile]) // Re-run when layout changes
 
   return (
     <YStack gap="$6" alignItems="center" width="100%">
       {/* Animation Canvas */}
       <YStack
+        ref={containerRef}
         position="relative"
         width="100%"
-        height={600}
+        maxWidth={1100}
+        height={500}
         backgroundColor="rgba(0,0,0,0.3)"
         borderRadius="$8"
         borderWidth={1}
         borderColor="rgba(255,255,255,0.1)"
         overflow="hidden"
-        $sm={{ height: 500 }}
+        $sm={{ height: 600, maxWidth: '100%' }} // Taller on mobile for vertical stack
       >
-        {/* Component Nodes */}
+        {/* SVG Layer for connection lines */}
+        <svg
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            pointerEvents: 'none',
+            overflow: 'visible',
+          }}
+        >
+          <defs>
+            {CONNECTIONS.map(({ from, to, color }) => (
+              <linearGradient
+                key={`gradient-${from}-${to}`}
+                id={`gradient-${from}-${to}`}
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" stopColor={color} stopOpacity={0.7} />
+                <stop offset="100%" stopColor={color} stopOpacity={0.3} />
+              </linearGradient>
+            ))}
+          </defs>
+
+          {/* Connection Lines - NOW USING ACTUAL NODE POSITIONS */}
+          {CONNECTIONS.map(({ from, to, color }) => {
+            const fromPos = nodePositions[from]
+            const toPos = nodePositions[to]
+
+            if (!fromPos || !toPos) return null
+
+            return (
+              <line
+                key={`line-${from}-${to}`}
+                x1={fromPos.x}
+                y1={fromPos.y}
+                x2={toPos.x}
+                y2={toPos.y}
+                stroke={`url(#gradient-${from}-${to})`}
+                strokeWidth={2}
+                opacity={0.6}
+              />
+            )
+          })}
+        </svg>
+
+        {/* Flowing Particles - NOW USING ACTUAL NODE POSITIONS */}
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+          {CONNECTIONS.map(({ from, to, color }) => {
+            const fromPos = nodePositions[from]
+            const toPos = nodePositions[to]
+
+            if (!fromPos || !toPos) return null
+
+            return (
+              <div key={`particles-${from}-${to}`}>
+                <FlowingParticle
+                  fromX={fromPos.x}
+                  fromY={fromPos.y}
+                  toX={toPos.x}
+                  toY={toPos.y}
+                  color={color}
+                  delay={0}
+                />
+                <FlowingParticle
+                  fromX={fromPos.x}
+                  fromY={fromPos.y}
+                  toX={toPos.x}
+                  toY={toPos.y}
+                  color={color}
+                  delay={1}
+                />
+                <FlowingParticle
+                  fromX={fromPos.x}
+                  fromY={fromPos.y}
+                  toX={toPos.x}
+                  toY={toPos.y}
+                  color={color}
+                  delay={2}
+                />
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Component Nodes - WITH REFS & DYNAMIC POSITIONS */}
         <ComponentNode
+          ref={uiRef}
           id="ui"
           type="client"
           label="UI/Client"
-          icon={<Globe size={24} />}
-          position={POSITIONS.ui}
-          isActive={activeNodes.includes('ui')}
+          icon={<Globe size={20} />}
+          position={activePositions.ui}
         />
 
         <ComponentNode
+          ref={agentRef}
           id="agent"
           type="automation"
           label="Agent"
-          icon={<Bot size={24} />}
-          position={POSITIONS.agent}
-          isActive={activeNodes.includes('agent')}
+          icon={<Bot size={20} />}
+          position={activePositions.agent}
         />
 
+        {/* Event Store - LARGER */}
         <ComponentNode
-          id="api"
-          type="server"
-          label="tRPC API"
-          icon={<Server size={24} />}
-          position={POSITIONS.api}
-          isActive={activeNodes.includes('api')}
-        />
-
-        <ComponentNode
+          ref={eventStoreRef}
           id="eventStore"
           type="database"
           label="Event Store"
-          icon={<Database size={24} />}
-          position={POSITIONS.eventStore}
-          isActive={activeNodes.includes('eventStore')}
+          icon={<Database size={28} />}
+          position={activePositions.eventStore}
+          size="large"
         />
 
         <ComponentNode
-          id="inngest"
-          type="service"
-          label="Inngest"
-          icon={<Zap size={24} />}
-          position={POSITIONS.inngest}
-          isActive={activeNodes.includes('inngest')}
-        />
-
-        <ComponentNode
+          ref={workersRef}
           id="workers"
           type="service"
           label="Workers"
-          icon={<Cpu size={24} />}
-          position={POSITIONS.workers}
-          isActive={activeNodes.includes('workers')}
+          icon={<Cpu size={20} />}
+          position={activePositions.workers}
         />
 
         <ComponentNode
+          ref={databaseRef}
           id="database"
           type="database"
           label="PostgreSQL"
-          icon={<Database size={24} />}
-          position={POSITIONS.database}
-          isActive={activeNodes.includes('database')}
+          icon={<Database size={20} />}
+          position={activePositions.database}
         />
 
         <ComponentNode
+          ref={storageRef}
           id="storage"
           type="storage"
           label="R2/MinIO"
-          icon={<HardDrive size={24} />}
-          position={POSITIONS.storage}
-          isActive={activeNodes.includes('storage')}
+          icon={<HardDrive size={20} />}
+          position={activePositions.storage}
         />
-
-        {/* Connection lines will be added in next iteration */}
       </YStack>
-
-      {/* Controls */}
-      <Controls
-        isPlaying={isPlaying}
-        onPlayPause={() => setIsPlaying(!isPlaying)}
-        onReset={handleReset}
-        currentFlow={currentFlow}
-        onFlowChange={setCurrentFlow}
-      />
     </YStack>
   )
 }

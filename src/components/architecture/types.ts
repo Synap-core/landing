@@ -25,6 +25,7 @@ export interface ComponentNodeProps {
   isActive?: boolean
   isHighlighted?: boolean
   onClick?: () => void
+  size?: 'normal' | 'large'
 }
 
 export interface ConnectionLineProps {

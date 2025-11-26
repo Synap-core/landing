@@ -24,7 +24,8 @@ export function Controls({
       {/* Primary Controls */}
       <XStack gap="$3" alignItems="center">
         <Button
-          size="$3"
+          size="$5"
+          fontSize={14}
           backgroundColor={isPlaying ? '$primary' : 'rgba(255,255,255,0.1)'}
           onPress={onPlayPause}
           icon={isPlaying ? <Pause size={16} /> : <Play size={16} />}
@@ -34,7 +35,8 @@ export function Controls({
         </Button>
 
         <Button
-          size="$3"
+          size="$5"
+          fontSize={14}
           backgroundColor="rgba(255,255,255,0.1)"
           onPress={onReset}
           icon={<RotateCcw size={16} />}
@@ -51,7 +53,7 @@ export function Controls({
         </Text>
         <XStack gap="$2">
           <Button
-            size="$2"
+            size="$5"
             fontSize={12}
             backgroundColor={currentFlow === 'simple' ? '$primary' : 'rgba(255,255,255,0.05)'}
             borderColor={currentFlow === 'simple' ? '$primary' : 'rgba(255,255,255,0.1)'}
@@ -60,7 +62,7 @@ export function Controls({
             Simple
           </Button>
           <Button
-            size="$2"
+            size="$5"
             fontSize={12}
             backgroundColor={currentFlow === 'complex' ? '$primary' : 'rgba(255,255,255,0.05)'}
             borderColor={currentFlow === 'complex' ? '$primary' : 'rgba(255,255,255,0.1)'}
