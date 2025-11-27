@@ -7,6 +7,7 @@ import { ArrowLeft, Terminal, Database, Shield, Zap, Code2, GitBranch, Globe } f
 import Link from 'next/link'
 import { Navigation } from '@/components/ui/Navigation'
 import { Footer } from '@/components/ui/Footer'
+import { DeveloperStories } from '@/components/sections/DeveloperStories'
 
 // Note: metadata export doesn't work in client components, handled in layout
 // But we can add it via next/head if needed
@@ -59,6 +60,9 @@ export default function DevelopersPage() {
             />
           </XStack>
         </YStack>
+
+        {/* Use Cases & Scenarios (from landing page) */}
+        <DeveloperStories />
 
         {/* Technical Architecture Deep Dive */}
         <YStack gap="$8" marginBottom="$12">
