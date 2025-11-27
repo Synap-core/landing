@@ -61,10 +61,10 @@ export function SectionIndicator() {
             borderRadius="$6"
             borderWidth={1}
             borderColor="rgba(16, 185, 129, 0.3)"
-            style={{
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(10px)'
             }}
+            $sm={{ display: 'none' }}
           >
             <Text  fontSize={11} color="$primary" opacity={0.9}>
               [{currentSection + 1}/{sections.length}] {sections[currentSection]}

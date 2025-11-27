@@ -33,7 +33,7 @@ export function Hero() {
         maxWidth={900} 
         padding="$4"
         paddingTop="$12" 
-        $sm={{ paddingTop: '$20', paddingHorizontal: '$6' }}
+        $sm={{ paddingTop: '$12', paddingHorizontal: '$6' }}
         gap="$8" 
         alignItems="center" 
       >
@@ -57,6 +57,7 @@ export function Hero() {
                     WebkitBackdropFilter: 'blur(10px)'
                 }}
                 marginBottom="$6"
+                $sm={{ display: 'none' }}
             >
               {/* <Github size={16} color="#10B981" /> */}
                 <SectionLabel size="$1" opacity={0.8}>
