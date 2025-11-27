@@ -43,14 +43,14 @@ To understand where we're going, we must understand where we've been.
 ### [ICON:Archive] Web 1.0 (1990s): The Era of Ownership
 
 **What It Got Right:**
-- ✅ **True Ownership**: You bought software, owned it forever
-- ✅ **Open Standards**: HTML, HTTP — no vendor lock-in
-- ✅ **Decentralized**: Your site, your server
+- [ICON:Check] **True Ownership**: You bought software, owned it forever
+- [ICON:Check] **Open Standards**: HTML, HTTP — no vendor lock-in
+- [ICON:Check] **Decentralized**: Your site, your server
 
 **Where It Failed:**
-- ❌ **Terrible UX**: Command lines, FTP, manual everything
-- ❌ **Technical Barriers**: Only tech-savvy users could participate
-- ❌ **No Collaboration**: Email attachments and pain
+- [ICON:X] **Terrible UX**: Command lines, FTP, manual everything
+- [ICON:X] **Technical Barriers**: Only tech-savvy users could participate
+- [ICON:X] **No Collaboration**: Email attachments and pain
 
 **The Lesson**: Ownership is essential, but UX can't be sacrificed.
 
@@ -59,15 +59,15 @@ To understand where we're going, we must understand where we've been.
 ### [ICON:Globe] Web 2.0 (2000s): The Era of Platforms
 
 **What It Got Right:**
-- ✅ **Amazing UX**: Click a button, it just works
-- ✅ **Mainstream**: Billions could participate
-- ✅ **Collaboration**: Real-time editing, seamless sharing
+- [ICON:Check] **Amazing UX**: Click a button, it just works
+- [ICON:Check] **Mainstream**: Billions could participate
+- [ICON:Check] **Collaboration**: Real-time editing, seamless sharing
 
 **Where It Failed:**
-- ❌ **Silos**: Your data trapped in walled gardens
-- ❌ **Vendor Lock-in**: Migration costs > 10x investment
-- ❌ **No Privacy**: You became the product
-- ❌ **Rent Forever**: Monthly subscriptions, never own
+- [ICON:X] **Silos**: Your data trapped in walled gardens
+- [ICON:X] **Vendor Lock-in**: Migration costs > 10x investment
+- [ICON:X] **No Privacy**: You became the product
+- [ICON:X] **Rent Forever**: Monthly subscriptions, never own
 
 **The Lesson**: Great UX is essential, but ownership can't be sacrificed.
 
@@ -76,14 +76,14 @@ To understand where we're going, we must understand where we've been.
 ### [ICON:Link] Web 3.0 (2010s): The Era of Broken Promises
 
 **What It Got Right:**
-- ✅ **The Vision**: Data sovereignty, user ownership
-- ✅ **Proved Demand**: People want to own their digital lives
+- [ICON:Check] **The Vision**: Data sovereignty, user ownership
+- [ICON:Check] **Proved Demand**: People want to own their digital lives
 
 **Where It Failed:**
-- ❌ **Complexity**: Gas fees, seed phrases, wallets
-- ❌ **Ideology First**: Led with tech instead of solving problems
-- ❌ **Terrible UX**: Even worse than Web 1.0
-- ❌ **Not Mainstream**: Only crypto-natives participated
+- [ICON:X] **Complexity**: Gas fees, seed phrases, wallets
+- [ICON:X] **Ideology First**: Led with tech instead of solving problems
+- [ICON:X] **Terrible UX**: Even worse than Web 1.0
+- [ICON:X] **Not Mainstream**: Only crypto-natives participated
 
 **The Lesson**: Vision is right, execution was wrong. People don't want decentralization for its own sake—they want **ownership, control, and interoperability**. Web3 confused the means (blockchain) with the end (sovereignty).
 
