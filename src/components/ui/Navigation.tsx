@@ -44,7 +44,7 @@ export function Navigation() {
               fontSize={20}
               fontWeight="700"
               color="#10B981"
-              style={{ fontFamily: 'Outfit, sans-serif' }}
+              style={{ fontFamily: 'Oughter, sans-serif' }}
             >
               Synap Core
             </Text>
