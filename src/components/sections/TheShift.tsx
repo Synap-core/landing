@@ -93,7 +93,7 @@ export function TheShift() {
           <YStack maxWidth={1200} width="100%" padding="$4" gap="$8">
             
             {/* Header */}
-            <YStack gap="$4" alignItems="center" marginBottom="$8">
+            <YStack gap="$6" alignItems="center" marginBottom="$8">
                <SectionLabel>
                   Evolution
                </SectionLabel>

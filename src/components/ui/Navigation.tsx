@@ -60,7 +60,7 @@ export function Navigation() {
         >
           <Link href="/" style={{ textDecoration: 'none' }}>
             <Text
-              fontSize="$2"
+              fontSize="$3"
               color="rgba(255,255,255,0.8)"
               hoverStyle={{ color: '#10B981' }}
               cursor="pointer"
@@ -71,7 +71,7 @@ export function Navigation() {
           
           <Link href="/developers" style={{ textDecoration: 'none' }}>
             <Text
-              fontSize="$2"
+              fontSize="$3"
               color="rgba(255,255,255,0.8)"
               hoverStyle={{ color: '#10B981' }}
               cursor="pointer"
@@ -82,7 +82,7 @@ export function Navigation() {
           
           <Link href="/whitepaper" style={{ textDecoration: 'none' }}>
             <Text
-              fontSize="$2"
+              fontSize="$3"
               color="rgba(255,255,255,0.8)"
               hoverStyle={{ color: '#10B981' }}
               cursor="pointer"
@@ -94,7 +94,7 @@ export function Navigation() {
           <Link href="https://github.com/synap/core" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <XStack gap="$2" alignItems="center" hoverStyle={{ opacity: 0.8 }}>
               <Github size={18} color="#fff" />
-              <Text fontSize="$2" color="rgba(255,255,255,0.8)">
+              <Text fontSize="$3" color="rgba(255,255,255,0.8)">
                 GitHub
               </Text>
             </XStack>
@@ -104,17 +104,17 @@ export function Navigation() {
         {/* Mobile Menu Button */}
         <div
           style={{
-            display: 'none',
             cursor: 'pointer',
           }}
-          className="mobile-menu-button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
+          <YStack display="none" $sm={{ display: 'block' }}>
           {mobileMenuOpen ? (
             <X size={24} color="#fff" />
           ) : (
             <Menu size={24} color="#fff" />
           )}
+          </YStack>
         </div>
       </XStack>
 
@@ -126,8 +126,6 @@ export function Navigation() {
           borderTopColor="rgba(255, 255, 255, 0.1)"
           padding="$4"
           gap="$4"
-          display="none"
-          className="mobile-menu"
         >
           <Link href="/" style={{ textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
             <Text fontSize="$3" color="rgba(255,255,255,0.8)" padding="$2">
@@ -158,17 +156,7 @@ export function Navigation() {
         </YStack>
       )}
 
-      {/* Mobile-specific CSS */}
-      <style jsx>{`
-        @media (max-width: 800px) {
-          .mobile-menu-button {
-            display: block !important;
-          }
-          .mobile-menu {
-            display: flex !important;
-          }
-        }
-      `}</style>
+      {/* Mobile-specific CSS removed in favor of Tamagui props */}
     </nav>
   )
 }

@@ -22,7 +22,7 @@ export function Hero() {
         alignItems="center"
         overflow="hidden"
         backgroundColor="$background"
-        paddingTop="$10"
+        paddingTop="$0"
     >
       {/* Rive Background Animation */}
       <RiveBackground />
@@ -32,8 +32,8 @@ export function Hero() {
         zIndex={10} 
         maxWidth={900} 
         padding="$4"
-        paddingTop="$12" 
-        $sm={{ paddingTop: '$12', paddingHorizontal: '$6' }}
+        paddingTop="$8" 
+        $sm={{ paddingTop: '$4', paddingHorizontal: '$6' }}
         gap="$8" 
         alignItems="center" 
       >
@@ -176,7 +176,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.9 }}
         >
             <Text 
-                fontSize="$1" 
+                fontSize="$3" 
                 color="$color" 
                 opacity={0.4}
                 letterSpacing={1}
