@@ -23,9 +23,8 @@ export function Navigation() {
       }}
     >
       <XStack
-        maxWidth={1200}
-        marginHorizontal="auto"
-        paddingHorizontal="$4"
+        width="100%"
+        paddingHorizontal="$6"
         paddingVertical="$4"
         justifyContent="space-between"
         alignItems="center"

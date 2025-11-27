@@ -89,6 +89,8 @@ export function TheShift() {
           justifyContent="center" 
           alignItems="center"
           zIndex={5}
+          paddingTop="$12"
+          $sm={{ paddingTop: "$16" }}
         >
           <YStack maxWidth={1200} width="100%" padding="$4" gap="$8">
             
