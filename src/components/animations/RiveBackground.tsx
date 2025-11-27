@@ -38,7 +38,7 @@ export function RiveBackground() {
   }, [rive])
 
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full" style={{ transform: 'scale(1.05)' }}>
       <RiveComponent />
     </div>
   )
