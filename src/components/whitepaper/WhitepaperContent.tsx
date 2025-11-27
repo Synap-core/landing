@@ -8,14 +8,14 @@ import { YStack, Text, H1, H2, H3, Paragraph, XStack } from 'tamagui'
 import { 
   Archive, Globe, Link, Sparkles, Palette, Bot, Plug, Building,
   Package, Lock, Handshake, HardDrive, Database, Search, Folder,
-  Container, Link2
+  Container, Link2, Check, X
 } from 'lucide-react'
 
 // Icon mapping for [ICON:Name] markers
 const iconMap: Record<string, React.ComponentType<{ size?: number, color?: string }>> = {
   Archive, Globe, Link, Sparkles, Palette, Bot, Plug, Building,
   Package, Lock, Handshake, HardDrive, Database, Search, Folder,
-  Container, Link2
+  Container, Link2, Check, X
 }
 
 // Parse text and replace [ICON:Name] with actual icons
@@ -102,21 +102,15 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
               .replace(/\s+/g, '-')
             return (
               <>
-                {/* Section separator */}
-                <YStack 
-                  marginTop="$12" 
-                  marginBottom="$8" 
-                  height={1} 
-                  backgroundColor="rgba(16, 185, 129, 0.2)"
-                  maxWidth={400}
-                  marginHorizontal="auto"
-                />
+                {/* Section separator - simple br */}
+                <br />
+                <br />
                 <H2 
                   id={id}
                   color="#fff" 
                   fontSize={36} 
                   fontWeight="700" 
-                  marginTop="$8" 
+                  marginTop="$6" 
                   marginBottom="$5"
                   lineHeight={44}
                   {...(props as any)}
@@ -177,15 +171,32 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
               {...props}
             />
           ),
-          li: ({ node, dangerouslySetInnerHTML, ...props }) => (
-            <li
-              style={{
-                marginBottom: 8,
-                lineHeight: 1.7,
-              }}
-              {...props}
-            />
-          ),
+          li: ({ node, children, dangerouslySetInnerHTML, ...props }) => {
+            // Parse text content to render icons
+            const parseChildren = (children: any): any => {
+              if (typeof children === 'string') {
+                return parseIconsInText(children)
+              }
+              if (Array.isArray(children)) {
+                return children.map((child, i) => 
+                  typeof child === 'string' ? parseIconsInText(child) : child
+                )
+              }
+              return children
+            }
+
+            return (
+              <li
+                style={{
+                  marginBottom: 8,
+                  lineHeight: 1.7,
+                }}
+                {...props}
+              >
+                {parseChildren(children)}
+              </li>
+            )
+          },
           code: ({ node, inline, className, children, dangerouslySetInnerHTML, ...props }: any) => {
             const match = /language-(\w+)/.exec(className || '')
             return !inline && match ? (

@@ -40,7 +40,7 @@ export default function DevelopersPage() {
         </YStack>
 
         {/* Pain Points Grid */}
-        <YStack gap="$8" marginBottom="$12">
+        <YStack gap="$8">
           <H2 color="#fff" fontSize={36} fontWeight="600">The Infrastructure Tax</H2>
           <XStack flexWrap="wrap" gap="$4">
             <FeatureCard 
@@ -65,7 +65,7 @@ export default function DevelopersPage() {
         <DeveloperStories />
 
         {/* Technical Architecture Deep Dive */}
-        <YStack gap="$8" marginBottom="$12">
+        <YStack gap="$8" marginTop="$6" marginBottom="$12">
           <H2 color="#fff" fontSize={36} fontWeight="600">How It Works</H2>
           
           {/* Event Sourcing */}

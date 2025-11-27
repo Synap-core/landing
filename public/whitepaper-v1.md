@@ -92,16 +92,16 @@ To understand where we're going, we must understand where we've been.
 ### [ICON:Sparkles] Web 2.5 (2025+): Our Synthesis
 
 **What We Keep:**
-- ✅ **Ownership** (from Web 1.0)
-- ✅ **Amazing UX** (from Web 2.0)
-- ✅ **Sovereignty Vision** (from Web 3.0)
-- ✅ **Pragmatism**: Self-host when ready, not forced
+- [ICON:Check] **Ownership** (from Web 1.0)
+- [ICON:Check] **Amazing UX** (from Web 2.0)
+- [ICON:Check] **Sovereignty Vision** (from Web 3.0)
+- [ICON:Check] **Pragmatism**: Self-host when ready, not forced
 
 **What We Fix:**
-- ❌ No silos (data is portable)
-- ❌ No lock-in (apps are interchangeable)
-- ❌ No complexity (Docker one-liner)
-- ❌ No blockchain baggage (just infrastructure)
+- [ICON:X] No silos (data is portable)
+- [ICON:X] No lock-in (apps are interchangeable)
+- [ICON:X] No complexity (Docker one-liner)
+- [ICON:X] No blockchain baggage (just infrastructure)
 
 **The Result**: A system that feels like Web 2.0 but respects you like Web 1.0, with the sovereignty promised by Web 3.0—**without the baggage**.
 
