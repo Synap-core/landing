@@ -40,7 +40,7 @@ To understand where we're going, we must understand where we've been.
 
 ---
 
-### 📼 Web 1.0 (1990s): The Era of Ownership
+### [ICON:Archive] Web 1.0 (1990s): The Era of Ownership
 
 **What It Got Right:**
 - ✅ **True Ownership**: You bought software, owned it forever
@@ -56,7 +56,7 @@ To understand where we're going, we must understand where we've been.
 
 ---
 
-### 🌐 Web 2.0 (2000s): The Era of Platforms
+### [ICON:Globe] Web 2.0 (2000s): The Era of Platforms
 
 **What It Got Right:**
 - ✅ **Amazing UX**: Click a button, it just works
@@ -73,7 +73,7 @@ To understand where we're going, we must understand where we've been.
 
 ---
 
-### ⛓️ Web 3.0 (2010s): The Era of Broken Promises
+### [ICON:Link] Web 3.0 (2010s): The Era of Broken Promises
 
 **What It Got Right:**
 - ✅ **The Vision**: Data sovereignty, user ownership
@@ -89,7 +89,7 @@ To understand where we're going, we must understand where we've been.
 
 ---
 
-### ✨ Web 2.5 (2025+): Our Synthesis
+### [ICON:Sparkles] Web 2.5 (2025+): Our Synthesis
 
 **What We Keep:**
 - ✅ **Ownership** (from Web 1.0)
@@ -133,10 +133,10 @@ Instead of monolithic apps, Synap Core is built on a layered architecture where 
 This is what you interact with: apps, AI agents, and intelligent features.
 
 **Key Capabilities:**
-- 🎨 **Apps as "Views"**: Switch tools without migrating data
-- 🤖 **AI Integration**: Agents work ON your data (don't own it)
-- 🔌 **Plugin Ecosystem**: Add capabilities on demand
-- 🏢 **Proprietary Intelligence**: Our Intelligence Hub and community plugins
+- [ICON:Palette] **Apps as "Views"**: Switch tools without migrating data
+- [ICON:Bot] **AI Integration**: Agents work ON your data (don't own it)
+- [ICON:Plug] **Plugin Ecosystem**: Add capabilities on demand
+- [ICON:Building] **Proprietary Intelligence**: Our Intelligence Hub and community plugins
 
 **Technical Stack:**
 - tRPC for type-safe APIs
@@ -152,11 +152,11 @@ This is what you interact with: apps, AI agents, and intelligent features.
 This is YOUR infrastructure—the core that holds your data.
 
 **Key Capabilities:**
-- 📦 **Event Store**: Immutable audit trail (TimescaleDB)
-- 🌐 **Universal API**: One API for all data types (tRPC)
-- 🔐 **Plugin System**: Authorized, scoped access
-- 🤝 **Hub Protocol**: Secure AI ↔ Pod communication
-- 💾 **Storage Abstraction**: Hybrid model (metadata in PostgreSQL, content in R2/MinIO)
+- [ICON:Package] **Event Store**: Immutable audit trail (TimescaleDB)
+- [ICON:Globe] **Universal API**: One API for all data types (tRPC)
+- [ICON:Lock] **Plugin System**: Authorized, scoped access
+- [ICON:Handshake] **Hub Protocol**: Secure AI ↔ Pod communication
+- [ICON:HardDrive] **Storage Abstraction**: Hybrid model (metadata in PostgreSQL, content in R2/MinIO)
 
 **Technical Stack:**
 - PostgreSQL + TimescaleDB + pgvector
@@ -172,10 +172,10 @@ This is YOUR infrastructure—the core that holds your data.
 The proven technologies that make it reliable and scalable.
 
 **Key Capabilities:**
-- 🗄️ **PostgreSQL + TimescaleDB**: Event log with time-series optimization
-- 🔍 **pgvector**: Semantic search for AI features
-- 📁 **Cloudflare R2 / MinIO**: Scalable content storage
-- 🐳 **Docker**: One-command deployment
+- [ICON:Database] **PostgreSQL + TimescaleDB**: Event log with time-series optimization
+- [ICON:Search] **pgvector**: Semantic search for AI features
+- [ICON:Folder] **Cloudflare R2 / MinIO**: Scalable content storage
+- [ICON:Container] **Docker**: One-command deployment
 
 **Why These Choices:**
 - Battle-tested (not experimental)
@@ -184,7 +184,7 @@ The proven technologies that make it reliable and scalable.
 
 ---
 
-**🔗 How They Connect:**
+**[ICON:Link2] How They Connect:**
 
 ```
 User → App (Layer 3) 

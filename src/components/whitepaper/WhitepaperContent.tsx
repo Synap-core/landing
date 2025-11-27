@@ -4,7 +4,57 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { YStack, Text, H1, H2, H3, Paragraph } from 'tamagui'
+import { YStack, Text, H1, H2, H3, Paragraph, XStack } from 'tamagui'
+import { 
+  Archive, Globe, Link, Sparkles, Palette, Bot, Plug, Building,
+  Package, Lock, Handshake, HardDrive, Database, Search, Folder,
+  Container, Link2
+} from 'lucide-react'
+
+// Icon mapping for [ICON:Name] markers
+const iconMap: Record<string, React.ComponentType<{ size?: number, color?: string }>> = {
+  Archive, Globe, Link, Sparkles, Palette, Bot, Plug, Building,
+  Package, Lock, Handshake, HardDrive, Database, Search, Folder,
+  Container, Link2
+}
+
+// Parse text and replace [ICON:Name] with actual icons
+const parseIconsInText = (text: string) => {
+  const iconRegex = /\[ICON:(\w+)\]/g
+  const parts: (string | JSX.Element)[] = []
+  let lastIndex = 0
+  let match
+
+  while ((match = iconRegex.exec(text)) !== null) {
+    // Add text before icon
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index))
+    }
+    
+    // Add icon
+    const iconName = match[1]
+    const IconComponent = iconMap[iconName]
+    if (IconComponent) {
+      parts.push(
+        <IconComponent 
+          key={match.index} 
+          size={20} 
+          color="#10B981" 
+          style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: 8 }}
+        />
+      )
+    }
+    
+    lastIndex = match.index + match[0].length
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex))
+  }
+
+  return parts.length > 0 ? parts : text
+}
 
 interface WhitepaperContentProps {
   content: string
@@ -21,39 +71,83 @@ export function WhitepaperContent({ content }: WhitepaperContentProps) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          h1: ({ node, dangerouslySetInnerHTML, ...props }) => (
-            <H1 
-              color="#fff" 
-              fontSize={48} 
-              fontWeight="800" 
-              marginTop="$8" 
-              marginBottom="$6"
-              lineHeight={56}
-              {...(props as any)}
-            />
-          ),
-          h2: ({ node, dangerouslySetInnerHTML, ...props }) => (
-            <H2 
-              color="#fff" 
-              fontSize={36} 
-              fontWeight="700" 
-              marginTop="$8" 
-              marginBottom="$5"
-              lineHeight={44}
-              {...(props as any)}
-            />
-          ),
-          h3: ({ node, dangerouslySetInnerHTML, ...props }) => (
-            <H3 
-              color="#fff" 
-              fontSize={24} 
-              fontWeight="600" 
-              marginTop="$6" 
-              marginBottom="$4"
-              lineHeight={32}
-              {...(props as any)}
-            />
-          ),
+          h1: ({ node, children, dangerouslySetInnerHTML, ...props }) => {
+            const text = typeof children === 'string' ? children : String(children)
+            const id = text
+              .toLowerCase()
+              .replace(/\[ICON:\w+\]/g, '')
+              .replace(/[^\w\s-]/g, '')
+              .replace(/\s+/g, '-')
+            return (
+              <H1 
+                id={id}
+                color="#fff" 
+                fontSize={48} 
+                fontWeight="800" 
+                marginTop="$8" 
+                marginBottom="$6"
+                lineHeight={56}
+                {...(props as any)}
+              >
+                {parseIconsInText(text)}
+              </H1>
+            )
+          },
+          h2: ({ node, children, dangerouslySetInnerHTML, ...props }) => {
+            const text = typeof children === 'string' ? children : String(children)
+            const id = text
+              .toLowerCase()
+              .replace(/\[ICON:\w+\]/g, '')
+              .replace(/[^\w\s-]/g, '')
+              .replace(/\s+/g, '-')
+            return (
+              <>
+                {/* Section separator */}
+                <YStack 
+                  marginTop="$12" 
+                  marginBottom="$8" 
+                  height={1} 
+                  backgroundColor="rgba(16, 185, 129, 0.2)"
+                  maxWidth={400}
+                  marginHorizontal="auto"
+                />
+                <H2 
+                  id={id}
+                  color="#fff" 
+                  fontSize={36} 
+                  fontWeight="700" 
+                  marginTop="$8" 
+                  marginBottom="$5"
+                  lineHeight={44}
+                  {...(props as any)}
+                >
+                  {parseIconsInText(text)}
+                </H2>
+              </>
+            )
+          },
+          h3: ({ node, children, dangerouslySetInnerHTML, ...props }) => {
+            const text = typeof children === 'string' ? children : String(children)
+            const id = text
+              .toLowerCase()
+              .replace(/\[ICON:\w+\]/g, '')
+              .replace(/[^\w\s-]/g, '')
+              .replace(/\s+/g, '-')
+            return (
+              <H3 
+                id={id}
+                color="#fff" 
+                fontSize={24} 
+                fontWeight="600" 
+                marginTop="$6" 
+                marginBottom="$4"
+                lineHeight={32}
+                {...(props as any)}
+              >
+                {parseIconsInText(text)}
+              </H3>
+            )
+          },
           p: ({ node, dangerouslySetInnerHTML, ...props }) => (
             <Paragraph 
               color="rgba(255,255,255,0.85)" 
