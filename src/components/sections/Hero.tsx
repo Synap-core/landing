@@ -15,13 +15,14 @@ const TerminalSimulator = dynamic(() => import('../ui/TerminalSimulator').then(m
 export function Hero() {
   return (
     <YStack 
-        height="100vh"
+        minHeight="100vh"
         width="100%" 
         position="relative" 
         justifyContent="center" 
         alignItems="center"
         overflow="hidden"
         backgroundColor="$background"
+        paddingTop="$10"
     >
       {/* Rive Background Animation */}
       <RiveBackground />
@@ -30,7 +31,9 @@ export function Hero() {
       <YStack 
         zIndex={10} 
         maxWidth={900} 
-        padding="$4" 
+        padding="$4"
+        paddingTop="$12" 
+        $sm={{ paddingTop: '$20', paddingHorizontal: '$6' }}
         gap="$8" 
         alignItems="center" 
       >
@@ -110,15 +113,18 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
             style={{ 
-              display: 'flex', 
-              gap: 16, 
-              flexDirection: 'row',
-              flexWrap: 'wrap', 
-              justifyContent: 'center', 
-              marginTop: 16,
-              width: '100%'
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center'
             }}
         >
+            <XStack
+                gap="$4"
+                flexWrap="wrap"
+                justifyContent="center"
+                width="100%"
+                $sm={{ flexDirection: 'column', alignItems: 'center', gap: '$3' }}
+            >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button 
                   variant="primary" 
@@ -159,6 +165,7 @@ export function Hero() {
                     For Developers →
                 </Button>
             </motion.div> */}
+            </XStack>
         </motion.div>
 
         {/* Technical credibility tagline */}
