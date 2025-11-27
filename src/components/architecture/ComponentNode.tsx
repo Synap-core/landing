@@ -12,9 +12,7 @@ export const ComponentNode = forwardRef<HTMLDivElement, ComponentNodeProps>(
       type,
       label,
       icon,
-      position,
       isActive = false,
-      isHighlighted = false,
       onClick,
       size = 'normal',
     },
@@ -41,10 +39,6 @@ export const ComponentNode = forwardRef<HTMLDivElement, ComponentNodeProps>(
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
         style={{
-          position: 'absolute',
-          left: `${position.x}%`,
-          top: `${position.y}%`,
-          transform: 'translate(-50%, -50%)',
           cursor: onClick ? 'pointer' : 'default',
         }}
         onClick={onClick}

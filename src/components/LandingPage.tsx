@@ -27,8 +27,8 @@ export function LandingPage() {
         <Philosophy />  {/* Moved up - reinforces vision early */}
         <Ecosystem />   {/* New - answers "what can I do?" */}
         <WhyNow />
-        <DeveloperStories />
         <Architecture />
+         <DeveloperStories />
         <Community />
         {/* <Specs /> - Moved to /developers page */}
       </YStack>

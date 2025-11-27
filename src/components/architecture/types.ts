@@ -21,7 +21,6 @@ export interface ComponentNodeProps {
   type: ComponentType
   label: string
   icon: React.ReactNode
-  position: ComponentPosition
   isActive?: boolean
   isHighlighted?: boolean
   onClick?: () => void

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { XStack, YStack, Text } from 'tamagui'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Github, Menu, X } from 'lucide-react'
 
 export function Navigation() {
@@ -31,15 +32,23 @@ export function Navigation() {
       >
         {/* Logo/Brand */}
         <Link href="/" style={{ textDecoration: 'none' }}>
-          <Text
-            fontSize={20}
-            fontWeight="700"
-            color="#10B981"
-            fontFamily="$heading"
-            hoverStyle={{ opacity: 0.8 }}
-          >
-            Synap Core
-          </Text>
+          <XStack gap="$2" alignItems="center" hoverStyle={{ opacity: 0.8 }}>
+            <Image
+              src="/logo.png"
+              alt="Synap Core Logo"
+              width={32}
+              height={32}
+              style={{ borderRadius: '6px' }}
+            />
+            <Text
+              fontSize={20}
+              fontWeight="700"
+              color="#10B981"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Synap Core
+            </Text>
+          </XStack>
         </Link>
 
         {/* Desktop Nav Links */}

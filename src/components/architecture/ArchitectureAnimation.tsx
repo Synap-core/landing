@@ -102,13 +102,31 @@ function DesktopGridView() {
       setNodePositions(newPositions)
     }
 
-    calculatePositions()
+    // Initial calculation with longer delay to ensure grid layout is complete
+    const timeout = setTimeout(calculatePositions, 200)
+    
+    // Recalculate on resize
     window.addEventListener('resize', calculatePositions)
-    const timeout = setTimeout(calculatePositions, 100)
+    
+    // Observer for layout changes
+    const container = containerRef.current
+    let observer: MutationObserver | null = null
+    
+    if (container) {
+      observer = new MutationObserver(() => {
+        calculatePositions()
+      })
+      observer.observe(container, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+      })
+    }
 
     return () => {
       window.removeEventListener('resize', calculatePositions)
       clearTimeout(timeout)
+      observer?.disconnect()
     }
   }, [])
 
@@ -120,12 +138,12 @@ function DesktopGridView() {
         display: 'grid',
         gridTemplateColumns: '1fr 2fr 1fr',
         gridTemplateRows: 'auto auto auto auto',  // 4 rows now
-        gap: '48px 64px',
-        padding: '48px',
+        gap: '32px 48px',
+        padding: '32px',
         backgroundColor: 'rgba(0,0,0,0.3)',
         borderRadius: '16px',
         border: '1px solid rgba(255,255,255,0.1)',
-        minHeight: 600,
+        minHeight: 480,
       }}
     >
       {/* SVG Connections - REMOVED for cleaner look, particles only */}
@@ -165,7 +183,7 @@ function DesktopGridView() {
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
-          gap: '48px',
+          gap: '32px',
           zIndex: 1,
         }}
       >
@@ -210,7 +228,7 @@ function DesktopGridView() {
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
-          gap: '48px',
+          gap: '32px',
           zIndex: 1,
         }}
       >
