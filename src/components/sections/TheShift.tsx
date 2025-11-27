@@ -146,7 +146,7 @@ export function TheShift() {
                   >
                     Feudal Web
                   </H2>
-                  <Lock size={32} color="#525252" />
+                 
                 </XStack>
                 
                 <YStack gap="$6">
@@ -157,15 +157,15 @@ export function TheShift() {
                       </YStack>
                       <YStack>
                         <Text 
-                          fontSize="$4" 
-                          $sm={{ fontSize: "$3" }}
+                          fontSize="$5" 
+                          $sm={{ fontSize: "$4" }}
                           fontFamily="$body" 
                           color="#e5e5e5" 
                           fontWeight="500"
                         >
                           {pt.text}
                         </Text>
-                        <Text fontSize="$2" color="#a3a3a3">{pt.sub}</Text>
+                        <Text fontSize="$3" $sm={{ fontSize: "$2" }} color="#a3a3a3">{pt.sub}</Text>
                       </YStack>
                     </XStack>
                   ))}
@@ -255,15 +255,15 @@ export function TheShift() {
                       </YStack>
                       <YStack>
                         <Text 
-                          fontSize="$4" 
-                          $sm={{ fontSize: "$3" }}
+                          fontSize="$5" 
+                          $sm={{ fontSize: "$4" }}
                           fontFamily="$body" 
                           color="#fff" 
                           fontWeight="500"
                         >
                           {pt.text}
                         </Text>
-                        <Text fontSize="$2" color="#D1FAE5" opacity={0.9}>{pt.sub}</Text>
+                        <Text fontSize="$3" $sm={{ fontSize: "$2" }} color="#D1FAE5" opacity={0.9}>{pt.sub}</Text>
                       </YStack>
                     </XStack>
                   ))}
