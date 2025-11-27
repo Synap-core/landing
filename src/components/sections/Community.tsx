@@ -3,7 +3,7 @@
 import { YStack, XStack, H2, Paragraph, Text, Theme } from 'tamagui'
 import { motion } from 'framer-motion'
 import { Button } from '../ui/Button'
-import { Github, MessageSquare, Download } from 'lucide-react'
+import { Github, MessageSquare, Download, Book } from 'lucide-react'
 import { useGitHubStats } from '@/hooks/useGitHubStats'
 
 export function Community() {
@@ -181,6 +181,26 @@ export function Community() {
                 <XStack gap="$2" alignItems="center">
                   <Download size={20} />
                   <Text>Self-Host</Text>
+                </XStack>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button 
+                variant="outline" 
+                size="$5"
+                borderRadius="$10"
+                borderColor="$borderColor"
+                href="https://doc.synap.live"
+                tag="a"
+                target="_blank"
+              >
+                <XStack gap="$2" alignItems="center">
+                  <Book size={20} />
+                  <Text>Read Docs</Text>
                 </XStack>
               </Button>
             </motion.div>

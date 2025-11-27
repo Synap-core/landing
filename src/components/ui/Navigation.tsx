@@ -53,7 +53,6 @@ export function Navigation() {
         {/* Desktop Nav Links */}
         <XStack 
           gap="$6" 
-          alignItems="center"
           display="flex"
           $sm={{ display: 'none' }}
         >
@@ -87,6 +86,17 @@ export function Navigation() {
               cursor="pointer"
             >
               Whitepaper
+            </Text>
+          </Link>
+          
+          <Link href="https://doc.synap.live" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <Text
+              fontSize="$3"
+              color="rgba(255,255,255,0.8)"
+              hoverStyle={{ color: '#10B981' }}
+              cursor="pointer"
+            >
+              Docs
             </Text>
           </Link>
           
@@ -141,6 +151,12 @@ export function Navigation() {
           <Link href="/whitepaper" style={{ textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
             <Text fontSize="$3" color="rgba(255,255,255,0.8)" padding="$2">
               Whitepaper
+            </Text>
+          </Link>
+          
+          <Link href="https://doc.synap.live" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
+            <Text fontSize="$3" color="rgba(255,255,255,0.8)" padding="$2">
+              Docs
             </Text>
           </Link>
           
