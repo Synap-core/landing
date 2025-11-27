@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 
 // Icon mapping for [ICON:Name] markers
-const iconMap: Record<string, React.ComponentType<{ size?: number, color?: string }>> = {
+const iconMap: Record<string, any> = {
   Archive, Globe, Link, Sparkles, Palette, Bot, Plug, Building,
   Package, Lock, Handshake, HardDrive, Database, Search, Folder,
   Container, Link2, Check, X
