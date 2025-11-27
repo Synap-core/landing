@@ -85,7 +85,7 @@ export const SubHeading = styled(H3, {
 // Section label - Small uppercase labels
 export const SectionLabel = styled(SizableText, {
   name: 'SectionLabel',
-  size: '$2',               // 14px
+  size: '$3',               // 16px
   fontFamily: '$body',
   textTransform: 'uppercase',
   letterSpacing: 2,

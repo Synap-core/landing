@@ -144,7 +144,8 @@ export function Philosophy() {
                 Deploy your first data pod. Build an app. Join the community. The infrastructure is ready. The timing is perfect.
               </Paragraph>
               <Text 
-                fontSize="$2" 
+                fontSize="$4" 
+                $sm={{ fontSize: "$3" }}
                 color="$primary" 
                 opacity={0.7}
                 marginTop="$2"
