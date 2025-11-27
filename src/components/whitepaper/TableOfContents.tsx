@@ -209,7 +209,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
       display="none"
       $gtSm={{ display: 'flex' }}
     >
-      <YStack paddingHorizontal="$4" gap="$3" flex={1} overflow="auto">
+      <YStack paddingHorizontal="$4" gap="$3" flex={1} overflow="scroll">
         <Text
           fontSize={11}
           color="rgba(255,255,255,0.5)"
