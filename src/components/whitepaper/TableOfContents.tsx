@@ -196,7 +196,6 @@ export function TableOfContents({ content }: TableOfContentsProps) {
     <YStack
       width={280}
       height="100vh"
-      position="sticky"
       top={0}
       paddingTop={100}
       paddingBottom="$6"
@@ -204,6 +203,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
       borderRightColor="rgba(255,255,255,0.1)"
       backgroundColor="rgba(5, 5, 5, 0.98)"
       style={{
+        position: 'sticky',
         backdropFilter: 'blur(10px)',
       }}
       display="none"
