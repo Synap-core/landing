@@ -168,8 +168,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.9 }}
         >
             <Text 
-                 
-                fontSize={11} 
+                fontSize="$1" 
                 color="$color" 
                 opacity={0.4}
                 letterSpacing={1}
@@ -183,4 +182,3 @@ export function Hero() {
     </YStack>
   )
 }
-

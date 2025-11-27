@@ -54,8 +54,7 @@ export function WhyNow() {
               transition={{ duration: 0.6 }}
             >
               <Text 
-                 
-                fontSize={12} 
+                fontSize="$1" 
                 color="$primary" 
                 letterSpacing={2}
                 textTransform="uppercase"
@@ -72,7 +71,8 @@ export function WhyNow() {
             >
               <H2 
                 textAlign="center" 
-                fontSize={48} 
+                fontSize="$9" 
+                $sm={{ fontSize: "$7" }}
                 fontFamily="$heading"
                 color="$color"
                 fontWeight="300"
@@ -90,7 +90,8 @@ export function WhyNow() {
             >
               <Paragraph 
                 textAlign="center" 
-                fontSize={18} 
+                fontSize="$4" 
+                $sm={{ fontSize: "$3" }}
                 color="$color" 
                 opacity={0.6}
                 maxWidth={700}
@@ -138,11 +139,16 @@ export function WhyNow() {
                     </YStack>
                     
                     <YStack flex={1} gap="$2">
-                      <H3 fontSize={24} color="white" fontWeight="500">
+                      <H3 
+                        fontSize="$5" 
+                        $sm={{ fontSize: "$4" }}
+                        color="white" 
+                        fontWeight="500"
+                      >
                         {reason.title}
                       </H3>
                       
-                      <Text fontSize={15} color="#a3a3a3" lineHeight={24}>
+                      <Text fontSize="$3" color="#a3a3a3" lineHeight={24}>
                         {reason.description}
                       </Text>
                     </YStack>
@@ -168,7 +174,12 @@ export function WhyNow() {
               alignItems="center"
               gap="$3"
             >
-              <Text fontSize={18} color="$primary" fontWeight="600">
+              <Text 
+                fontSize="$4" 
+                $sm={{ fontSize: "$3" }}
+                color="$primary" 
+                fontWeight="600"
+              >
                 The window is open.
               </Text>
               <Paragraph textAlign="center" color="$color" opacity={0.8} maxWidth={600}>

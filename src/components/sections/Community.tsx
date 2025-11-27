@@ -30,8 +30,7 @@ export function Community() {
               transition={{ duration: 0.6 }}
             >
               <Text 
-                 
-                fontSize={12} 
+                fontSize="$1" 
                 color="$primary" 
                 letterSpacing={2}
                 textTransform="uppercase"
@@ -48,8 +47,8 @@ export function Community() {
             >
               <H2 
                 textAlign="center" 
-                fontSize={48} 
-                $sm={{ fontSize: 32 }}
+                fontSize="$9" 
+                $sm={{ fontSize: "$7" }}
                 fontFamily="$heading"
                 color="$color"
                 fontWeight="600"
@@ -67,7 +66,8 @@ export function Community() {
             >
               <Paragraph 
                 textAlign="center" 
-                fontSize={18} 
+                fontSize="$4" 
+                $sm={{ fontSize: "$3" }}
                 color="$color" 
                 opacity={0.6}
                 maxWidth={600}
@@ -103,7 +103,8 @@ export function Community() {
                     padding="$4"
                   >
                     <Text 
-                      fontSize={48} 
+                      fontSize="$9" 
+                      $sm={{ fontSize: "$7" }}
                       fontWeight="700" 
                       color="$primary"
                       fontFamily="$heading"
@@ -111,7 +112,7 @@ export function Community() {
                       {stat.value}
                     </Text>
                     <Text 
-                      fontSize={14} 
+                      fontSize="$2" 
                       color="$color" 
                       opacity={0.6}
                       textTransform="uppercase"

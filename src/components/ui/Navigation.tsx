@@ -41,7 +41,7 @@ export function Navigation() {
               style={{ borderRadius: '6px' }}
             />
             <Text
-              fontSize={20}
+              fontSize="$4"
               fontWeight="700"
               color="#10B981"
               style={{ fontFamily: 'Oughter, sans-serif' }}
@@ -60,7 +60,7 @@ export function Navigation() {
         >
           <Link href="/" style={{ textDecoration: 'none' }}>
             <Text
-              fontSize={14}
+              fontSize="$2"
               color="rgba(255,255,255,0.8)"
               hoverStyle={{ color: '#10B981' }}
               cursor="pointer"
@@ -71,7 +71,7 @@ export function Navigation() {
           
           <Link href="/developers" style={{ textDecoration: 'none' }}>
             <Text
-              fontSize={14}
+              fontSize="$2"
               color="rgba(255,255,255,0.8)"
               hoverStyle={{ color: '#10B981' }}
               cursor="pointer"
@@ -82,7 +82,7 @@ export function Navigation() {
           
           <Link href="/whitepaper" style={{ textDecoration: 'none' }}>
             <Text
-              fontSize={14}
+              fontSize="$2"
               color="rgba(255,255,255,0.8)"
               hoverStyle={{ color: '#10B981' }}
               cursor="pointer"
@@ -94,7 +94,7 @@ export function Navigation() {
           <Link href="https://github.com/synap/core" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <XStack gap="$2" alignItems="center" hoverStyle={{ opacity: 0.8 }}>
               <Github size={18} color="#fff" />
-              <Text fontSize={14} color="rgba(255,255,255,0.8)">
+              <Text fontSize="$2" color="rgba(255,255,255,0.8)">
                 GitHub
               </Text>
             </XStack>
@@ -130,19 +130,19 @@ export function Navigation() {
           className="mobile-menu"
         >
           <Link href="/" style={{ textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
-            <Text fontSize={16} color="rgba(255,255,255,0.8)" padding="$2">
+            <Text fontSize="$3" color="rgba(255,255,255,0.8)" padding="$2">
               Home
             </Text>
           </Link>
           
           <Link href="/developers" style={{ textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
-            <Text fontSize={16} color="rgba(255,255,255,0.8)" padding="$2">
+            <Text fontSize="$3" color="rgba(255,255,255,0.8)" padding="$2">
               For Developers
             </Text>
           </Link>
           
           <Link href="/whitepaper" style={{ textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
-            <Text fontSize={16} color="rgba(255,255,255,0.8)" padding="$2">
+            <Text fontSize="$3" color="rgba(255,255,255,0.8)" padding="$2">
               Whitepaper
             </Text>
           </Link>
@@ -150,7 +150,7 @@ export function Navigation() {
           <Link href="https://github.com/synap/core" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <XStack gap="$2" alignItems="center" padding="$2">
               <Github size={18} color="#fff" />
-              <Text fontSize={16} color="rgba(255,255,255,0.8)">
+              <Text fontSize="$3" color="rgba(255,255,255,0.8)">
                 GitHub
               </Text>
             </XStack>

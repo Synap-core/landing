@@ -103,7 +103,14 @@ export function TheShift() {
             </YStack>
 
             {/* THE COMPONENT */}
-            <YStack position="relative" width="100%" height={600} justifyContent="center" alignItems="center">
+            <YStack 
+              position="relative" 
+              width="100%" 
+              height={600} 
+              $sm={{ height: 500 }}
+              justifyContent="center" 
+              alignItems="center"
+            >
               
               {/* LAYER 1: THE CONCRETE BLOCK (Feudal Past) */}
               <YStack 
@@ -119,14 +126,24 @@ export function TheShift() {
                 borderRadius={20}
                 borderWidth={1}
                 borderColor="rgba(255,255,255,0.15)" // Sharp, thin border
-                padding={32}
+                padding="$8"
+                $sm={{ padding: "$6" }}
                 justifyContent="space-between"
                 style={{
                     boxShadow: '0 20px 50px rgba(0,0,0,0.8)' // Heavy shadow
                 }}
               >
                 <XStack justifyContent="space-between" alignItems="center">
-                  <H2 fontSize={40} fontFamily="$heading" color="white" fontWeight="500" letterSpacing={-1}>Feudal Web</H2>
+                  <H2 
+                    fontSize="$8" 
+                    $sm={{ fontSize: "$7" }}
+                    fontFamily="$heading" 
+                    color="white" 
+                    fontWeight="500" 
+                    letterSpacing={-1}
+                  >
+                    Feudal Web
+                  </H2>
                   <Lock size={32} color="#525252" />
                 </XStack>
                 
@@ -137,14 +154,22 @@ export function TheShift() {
                         <pt.icon size={24} color="#a3a3a3" />
                       </YStack>
                       <YStack>
-                        <Text fontSize={20} fontFamily="$body" color="#e5e5e5" fontWeight="500">{pt.text}</Text>
-                        <Text fontSize={14} color="#a3a3a3">{pt.sub}</Text>
+                        <Text 
+                          fontSize="$4" 
+                          $sm={{ fontSize: "$3" }}
+                          fontFamily="$body" 
+                          color="#e5e5e5" 
+                          fontWeight="500"
+                        >
+                          {pt.text}
+                        </Text>
+                        <Text fontSize="$2" color="#a3a3a3">{pt.sub}</Text>
                       </YStack>
                     </XStack>
                   ))}
                 </YStack>
                 
-                <Text fontFamily="$mono" color="#525252" fontSize={12}>STATUS: RESTRICTED</Text>
+                <Text fontFamily="$mono" color="#525252" fontSize="$1">STATUS: RESTRICTED</Text>
               </YStack>
 
               {/* LAYER 2: THE LIVING PRISM (Sovereign Future) - EMERALD THEMED */}
@@ -201,7 +226,14 @@ export function TheShift() {
                  }} />
 
                  <XStack justifyContent="space-between" alignItems="center">
-                  <H2 fontSize={40} fontFamily="$heading" color="#fff" fontWeight="500" style={{ textShadow: '0 0 30px rgba(16,185,129,0.4)' }}>
+                  <H2 
+                    fontSize="$8" 
+                    $sm={{ fontSize: "$7" }}
+                    fontFamily="$heading" 
+                    color="#fff" 
+                    fontWeight="500" 
+                    style={{ textShadow: '0 0 30px rgba(16,185,129,0.4)' }}
+                  >
                     The Sovereign Web
                   </H2>
                 </XStack>
@@ -220,8 +252,16 @@ export function TheShift() {
                         <pt.icon size={24} color="#10B981" />
                       </YStack>
                       <YStack>
-                        <Text fontSize={20} fontFamily="$body" color="#fff" fontWeight="500">{pt.text}</Text>
-                        <Text fontSize={14} color="#D1FAE5" opacity={0.9}>{pt.sub}</Text>
+                        <Text 
+                          fontSize="$4" 
+                          $sm={{ fontSize: "$3" }}
+                          fontFamily="$body" 
+                          color="#fff" 
+                          fontWeight="500"
+                        >
+                          {pt.text}
+                        </Text>
+                        <Text fontSize="$2" color="#D1FAE5" opacity={0.9}>{pt.sub}</Text>
                       </YStack>
                     </XStack>
                   ))}
@@ -231,7 +271,7 @@ export function TheShift() {
                 <XStack gap="$4" alignItems="center" justifyContent="space-between">
                   <XStack alignItems="center" gap="$2">
                       <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 10px #10B981' }} />
-                      <Text fontFamily="$mono" color="#10B981" fontSize={12}>STATUS: SOVEREIGN</Text>
+                      <Text fontFamily="$mono" color="#10B981" fontSize="$1">STATUS: SOVEREIGN</Text>
                   </XStack>
                   
                   <a 

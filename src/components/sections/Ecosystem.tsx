@@ -54,8 +54,7 @@ export function Ecosystem() {
             viewport={{ once: true }}
           >
             <Text
-              
-              fontSize={12}
+              fontSize="$1"
               color="$primary"
               letterSpacing={2}
               textTransform="uppercase"
@@ -72,13 +71,13 @@ export function Ecosystem() {
           >
             <H2
               textAlign="center"
-              fontSize={56}
+              fontSize="$10"
               fontFamily="$heading"
               color="$color"
               fontWeight="300"
               letterSpacing={-2}
               lineHeight={64}
-              $sm={{ fontSize: 36, lineHeight: 44 }}
+              $sm={{ fontSize: "$8", lineHeight: 44 }}
             >
               What You Can Do With Synap Core
             </H2>
@@ -92,7 +91,8 @@ export function Ecosystem() {
           >
             <Paragraph
               textAlign="center"
-              fontSize={18}
+              fontSize="$4"
+              $sm={{ fontSize: "$3" }}
               color="rgba(255,255,255,0.7)"
               maxWidth={600}
             >
@@ -139,7 +139,12 @@ export function Ecosystem() {
                   <category.icon size={28} color="#10B981" />
                 </YStack>
 
-                <H3 fontSize={22} fontWeight="600" color="#fff">
+                <H3 
+                  fontSize="$5" 
+                  $sm={{ fontSize: "$4" }}
+                  fontWeight="600" 
+                  color="#fff"
+                >
                   {category.title}
                 </H3>
 
@@ -154,7 +159,7 @@ export function Ecosystem() {
                           backgroundColor: '#10B981'
                         }}
                       />
-                      <Text fontSize={15} color="rgba(255,255,255,0.7)">
+                      <Text fontSize="$3" color="rgba(255,255,255,0.7)">
                         {item}
                       </Text>
                     </XStack>
@@ -173,10 +178,20 @@ export function Ecosystem() {
         >
           <YStack gap="$6">
             <YStack gap="$2" alignItems="center">
-              <H3 fontSize={32} fontWeight="500" color="#fff" textAlign="center">
+              <H3 
+                fontSize="$7" 
+                $sm={{ fontSize: "$6" }}
+                fontWeight="500" 
+                color="#fff" 
+                textAlign="center"
+              >
                 Extend with Plugins
               </H3>
-              <Paragraph fontSize={16} color="rgba(255,255,255,0.6)" textAlign="center">
+              <Paragraph 
+                fontSize="$3" 
+                color="rgba(255,255,255,0.6)" 
+                textAlign="center"
+              >
                 Add capabilities on demand—all sandboxed and secure
               </Paragraph>
             </YStack>
@@ -214,7 +229,7 @@ export function Ecosystem() {
                     }}
                   >
                     <plugin.icon size={32} color={plugin.color} />
-                    <Text fontSize={14} fontWeight="500" color="#fff">
+                    <Text fontSize="$2" fontWeight="500" color="#fff">
                       {plugin.name}
                     </Text>
                   </YStack>
@@ -267,7 +282,7 @@ export function Ecosystem() {
                       margin="auto"
                     >
                       <plugin.icon size={32} color={plugin.color} />
-                      <Text fontSize={14} fontWeight="500" color="#fff">
+                      <Text fontSize="$2" fontWeight="500" color="#fff">
                         {plugin.name}
                       </Text>
                     </YStack>
@@ -288,7 +303,7 @@ export function Ecosystem() {
             <Link href="/developers" style={{ textDecoration: 'none' }}>
               <Button
                 size="$4"
-                fontSize={16}
+                fontSize="$3"
                 backgroundColor="$primary"
                 color="#000"
                 borderRadius="$10"
@@ -303,7 +318,7 @@ export function Ecosystem() {
             <Link href="/developers#plugins" style={{ textDecoration: 'none' }}>
               <Button
                 size="$4"
-                fontSize={16}
+                fontSize="$3"
                 backgroundColor="transparent"
                 borderWidth={2}
                 borderColor="rgba(255,255,255,0.2)"

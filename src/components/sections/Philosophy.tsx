@@ -41,8 +41,7 @@ export function Philosophy() {
               transition={{ duration: 0.6 }}
             >
               <Text 
-                 
-                fontSize={12} 
+                fontSize="$1" 
                 color="$primary" 
                 letterSpacing={2}
                 textTransform="uppercase"
@@ -59,8 +58,8 @@ export function Philosophy() {
             >
               <H2 
                 textAlign="center" 
-                fontSize={48} 
-                $sm={{ fontSize: 32, lineHeight: 40 }}
+                fontSize="$9" 
+                $sm={{ fontSize: "$7", lineHeight: 40 }}
                 fontFamily="$heading"
                 color="$color"
                 fontWeight="300"
@@ -82,9 +81,9 @@ export function Philosophy() {
               <YStack gap="$4" alignItems="center">
                 <H2 
                   textAlign="center" 
-                  fontSize={32}
+                  fontSize="$7"
                   lineHeight={44}
-                  $gtSm={{ fontSize: 40, lineHeight: 52 }}
+                  $gtSm={{ fontSize: "$8", lineHeight: 52 }}
                   color="$color"
                   fontWeight="300"
                   letterSpacing={-1}
@@ -94,7 +93,8 @@ export function Philosophy() {
                 </H2>
                 <Paragraph 
                   textAlign="center" 
-                  fontSize={18} 
+                  fontSize="$4" 
+                  $sm={{ fontSize: "$3" }}
                   lineHeight={30}
                   color="$color" 
                   opacity={0.6}
@@ -123,15 +123,28 @@ export function Philosophy() {
               alignItems="center"
               gap="$4"
             >
-              <H2 fontSize={28} color="$primary" fontWeight="500" textAlign="center">
+              <H2 
+                fontSize="$6" 
+                $sm={{ fontSize: "$5" }}
+                color="$primary" 
+                fontWeight="500" 
+                textAlign="center"
+              >
                 The sovereign web starts here
               </H2>
-              <Paragraph textAlign="center" fontSize={18} color="$color" opacity={0.8} maxWidth={600} lineHeight={28}>
+              <Paragraph 
+                textAlign="center" 
+                fontSize="$4" 
+                $sm={{ fontSize: "$3" }}
+                color="$color" 
+                opacity={0.8} 
+                maxWidth={600} 
+                lineHeight={28}
+              >
                 Deploy your first data pod. Build an app. Join the community. The infrastructure is ready. The timing is perfect.
               </Paragraph>
               <Text 
-                 
-                fontSize={13} 
+                fontSize="$2" 
                 color="$primary" 
                 opacity={0.7}
                 marginTop="$2"
