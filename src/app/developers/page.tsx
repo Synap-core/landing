@@ -213,7 +213,7 @@ export default function DevelopersPage() {
         <YStack gap="$6" marginBottom="$12" alignItems="center">
           <H2 color="#fff" fontSize={36} fontWeight="600" textAlign="center">Ready to Build?</H2>
           <XStack gap="$4" flexWrap="wrap" justifyContent="center">
-            <Button variant="primary" size="$5" borderRadius="$10" href="https://github.com/synap/core" tag="a" target="_blank"
+            <Button variant="primary" size="$5" borderRadius="$10" href="https://github.com/Synap-core/backend" tag="a" target="_blank"
             style={{
               textDecoration: 'none',
             }}>

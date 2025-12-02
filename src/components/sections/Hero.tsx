@@ -131,7 +131,7 @@ export function Hero() {
                   variant="primary" 
                   size="$5" 
                   borderRadius="$10"
-                  href="https://github.com/synap/core#quick-start"
+                  href="https://github.com/Synap-core/backend#quick-start"
                   tag="a"
                   target="_blank"
                   style={{

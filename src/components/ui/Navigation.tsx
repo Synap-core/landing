@@ -100,7 +100,7 @@ export function Navigation() {
             </Text>
           </Link>
           
-          <Link href="https://github.com/synap/core" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+          <Link href="https://github.com/Synap-core/backend" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <XStack gap="$2" alignItems="center" hoverStyle={{ opacity: 0.8 }}>
               <Github size={18} color="#fff" />
               <Text fontSize="$3" color="rgba(255,255,255,0.8)">
@@ -160,7 +160,7 @@ export function Navigation() {
             </Text>
           </Link>
           
-          <Link href="https://github.com/synap/core" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+          <Link href="https://github.com/Synap-core/backend" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <XStack gap="$2" alignItems="center" padding="$2">
               <Github size={18} color="#fff" />
               <Text fontSize="$3" color="rgba(255,255,255,0.8)">

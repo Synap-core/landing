@@ -60,7 +60,7 @@ export function Footer() {
             <Text fontSize={14} fontWeight="600" color="#fff" marginBottom="$2">
               Community
             </Text>
-            <Link href="https://github.com/synap/core" target="_blank" style={{ textDecoration: 'none' }}>
+            <Link href="https://github.com/Synap-core/backend" target="_blank" style={{ textDecoration: 'none' }}>
               <XStack gap="$2" alignItems="center" hoverStyle={{ opacity: 0.8 }}>
                 <Github size={16} color="rgba(255,255,255,0.6)" />
                 <Text fontSize={14} color="rgba(255,255,255,0.6)" hoverStyle={{ color: '#10B981' }}>
@@ -88,7 +88,7 @@ export function Footer() {
                 Documentation
               </Text>
             </Link>
-            <Link href="https://github.com/synap/core/blob/main/LICENSE" target="_blank" style={{ textDecoration: 'none' }}>
+            <Link href="https://github.com/Synap-core/backend/blob/main/LICENSE" target="_blank" style={{ textDecoration: 'none' }}>
               <Text fontSize={14} color="rgba(255,255,255,0.6)" hoverStyle={{ color: '#10B981' }}>
                 License (MIT)
               </Text>

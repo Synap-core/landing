@@ -141,7 +141,7 @@ export function Community() {
                 variant="primary" 
                 size="$5"
                 borderRadius="$10"
-                href="https://github.com/synap/core"
+                href="https://github.com/Synap-core/backend"
               >
                 <XStack gap="$2" alignItems="center">
                   <Github size={20} />

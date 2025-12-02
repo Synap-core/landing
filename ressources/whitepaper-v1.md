@@ -625,7 +625,7 @@ Join us.
 **Learn More:**
 - **Home**: [synap.sh](/)
 - **For Developers**: [synap.sh/developers](/developers)
-- **GitHub**: [github.com/synap/core](https://github.com/synap/core)
+- **GitHub**: [github.com/synap/core](https://github.com/Synap-core/backend)
 - **Discord**: [discord.gg/synap](https://discord.gg/synap)
 
 **License**: This whitepaper is released under CC BY-SA 4.0. The Synap Core codebase is MIT licensed.
